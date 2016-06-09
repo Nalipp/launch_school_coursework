@@ -1,9 +1,13 @@
+require 'pry'
+require 'yaml'
+MESSAGES = YAML.load_file('calculator_messages.yml')
+
 def prompt(message)
   puts "=> #{message}"
 end
 
-def valid_number?(num)
-  num != 0
+def numeric?(num)
+  Float(num) rescue false
 end
 
 def operation_to_message(op)
@@ -19,13 +23,13 @@ def operation_to_message(op)
   end
 end
 
-prompt "Welcome to Calculator!, Enter your name:"
+prompt MESSAGES['welcome']
 
 name = ''
 loop do
   name = gets.chomp
   if name.empty?
-    prompt("Make sure you provide your name")
+    prompt MESSAGES['name_error']
   else
     prompt "Welcome #{name}"
     break
@@ -35,23 +39,25 @@ end
 loop do
   num1 = ''
   loop do
-    prompt "What's the first number?"
-    num1 = gets.chomp.to_i
-    if valid_number?(num1)
+    prompt MESSAGES['first_number']
+    num1 = gets.chomp
+    if numeric?(num1)
+      num1.to_i
       break
     else
-      prompt "Hmm... that dosen't look like a valid number"
+      prompt MESSAGES['invalid_number']
     end
   end
 
   num2 = ''
   loop do
-    prompt "What's the second number?"
-    num2 = gets.chomp.to_i
-    if valid_number?(num2)
+    prompt MESSAGES['second_number']
+    num2 = gets.chomp
+    if numeric?(num2)
+      num2.to_i
       break
     else
-      prompt "Hmm... that dosen't look like a valid number"
+      prompt MESSAGES['invalid_number']
     end
   end
 
@@ -78,11 +84,11 @@ loop do
 
   result = case operator
            when "1"
-             num1 + num2
+             num1.to_i + num2.to_i
            when "2"
-             num1 - num2
+             num1.to_i - num2.to_i
            when "3"
-             num1 * num2
+             num1.to_i * num2.to_i
            else
              num1.to_f / num2.to_f
            end
