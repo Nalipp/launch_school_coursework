@@ -1,0 +1,45 @@
+pseudo code key
+keyword	meaning
+
+START	start of the program
+SET	sets a variable we can use for later
+GET	retrieve input from user
+PRINT	displays output to user
+READ	retrieve value from variable
+IF / ELSE IF / ELSE	show conditional branches in logic
+WHILE	show looping logic
+END	end of the program
+
+a method that returns the sum of two integers
+ START
+
+ GET first integer from user
+ SET first integer to num1 variable
+
+ GET second integer from user
+ SET second integer to num2 variable
+
+ SET answer variable to num1 + num2
+ PRINT answer variable
+
+
+a method that takes an array of strings, and returns a string that is all those strings concatenated together
+ START
+
+ GET array of strings from user
+ SET array of strings to variable str
+
+ COMBINE the array of strings
+ PRINT the array of strings
+
+a method that takes an array of integers, and returns a new array with every other element
+ START
+
+ GET array of integers from user
+ SET array of integers to var arr1
+
+ ITERATE over arr1
+ COLLECT each interger that occupies odd postion into new array variable
+ SET new arry variable to arr2
+
+ PRINT arr2
