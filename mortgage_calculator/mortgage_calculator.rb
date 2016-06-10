@@ -71,6 +71,6 @@ loop do
   MSG
 
   prompt("Would you like to make another calculation? [y/n]")
-  request = gets.chomp.downcase
-  break if request != "y"
+  calculate_again = gets.chomp.downcase
+  break if calculate_again != "y"
 end
