@@ -3,7 +3,7 @@ require 'pry'
 def create_deck
   suits = %w[Hearts Spades Diamonds Clubs]
   values = [*2..10, 'Jack', 'Queen', 'King', 'Ace']
-  deck = values.product(suits)
+  values.product(suits)
 end
 
 CARD_DECK = create_deck
@@ -54,7 +54,7 @@ def hit(game_deck, player)
 end
 
 def busted?(game_deck, player)
-  calculate_hand(game_deck, player) > 21 ? true : false
+  calculate_hand(game_deck, player) > 21
 end
 
 def display_player_hand(game_deck)
@@ -64,7 +64,7 @@ end
 
 def dealer_plays(game_deck, player)
 puts "Dealer hand : #{return_hand(game_deck, '1').keys.join(", ")}"
-  while calculate_hand(game_deck, player) <= 16 || calculate_hand(game_deck, player) < calculate_hand(game_deck, '0')
+  while calculate_hand(game_deck, player) <= 17 || calculate_hand(game_deck, player) < calculate_hand(game_deck, '0')
     deal_card(game_deck, player)
     puts "Dealer hand : #{return_hand(game_deck, '1').keys.join(", ")}"
   end
