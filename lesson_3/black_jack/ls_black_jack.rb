@@ -1,5 +1,5 @@
-SUITS = ['H', 'D', 'S', 'C']
-VALUES = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
+SUITS = %w(H D S C).freeze
+VALUES = %w(2 3 4 5 6 7 8 9 10 J Q K A).freeze
 
 def prompt(msg)
   puts "=> #{msg}"
@@ -93,7 +93,8 @@ loop do
   end
 
   prompt "Dealer has #{dealer_cards[0]} and ?"
-  prompt "You have: #{player_cards[0]} and #{player_cards[1]}, for a total of #{total(player_cards)}."
+  prompt "You have: #{player_cards[0]} and #{player_cards[1]}
+    total : #{total(player_cards)}"
 
   # player turn
   loop do
@@ -133,12 +134,13 @@ loop do
     prompt "Dealer's cards are now: #{dealer_cards}"
   end
 
+  dealer_total = total(dealer_cards)
   if busted?(dealer_cards)
-    prompt "Dealer total is now: #{total(dealer_cards)}"
+    prompt "Dealer total is now: #{dealer_total}"
     display_result(dealer_cards, player_cards)
     play_again? ? next : break
   else
-    prompt "Dealer stays at #{total(dealer_cards)}"
+    prompt "Dealer stays at #{dealer_total}"
   end
 
   # both player and dealer stays - compare cards!
