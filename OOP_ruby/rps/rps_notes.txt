@@ -1,0 +1,42 @@
+In Rock Paper Scissors two players choose either one of three possible moves, paper, rock or scissors.
+Rules are compared.
+The two moves are compared and rock beats scissors, paper beats rock, and scissors beats paper.
+If the two players choose the same move there is a tie.
+
+nouns / classes
+player
+move
+rule
+
+verbs / methods
+choose
+compare
+
+player : choose
+move   : (rock, paper, scissors)
+       : compare
+
+#######  Actual implementation  ################################################
+
+nouns / classes
+Player
+Human
+Computer
+RPSGame
+
+verbs / methods
+Player
+    move (attr_accessor)
+    name (attr_accessor)
+Human
+    choose_move (requires gets.chomp)
+    set_name    (requires gets.chomp)
+Computer
+    choose_move (requires random assignment)
+    set_name    (requires random assignment)
+RPSGame
+    display_welcome_message
+    play
+    display_winner
+    play_again?
+    good_bye_message
