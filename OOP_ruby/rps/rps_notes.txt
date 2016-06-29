@@ -40,3 +40,6 @@ RPSGame
     display_winner
     play_again?
     good_bye_message
+
+In OOP there is a tradeoff between code flexibility and indirection.
+Writing code with more flexibility results in more classes and more indirection.
