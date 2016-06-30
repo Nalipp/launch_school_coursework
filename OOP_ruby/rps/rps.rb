@@ -1,7 +1,7 @@
 require 'pry'
 
 class Move
-  VALUES = ['rock', 'paper', 'scissors']
+  VALUES = ['rock', 'paper', 'scissors'].freeze
 
   def initialize(value)
     @value = value
@@ -20,16 +20,9 @@ class Move
   end
 
   def beats?(other_move)
-    if rock?
-      return true if other_move.scissors?
-      return false
-    elsif paper?
-      return true if other_move.rock?
-      return false
-    elsif scissors?
-      return true if other_move.paper?
-      return false
-    end
+    (rock? && other_move.scissors?) ||
+      (paper? && other_move.rock?) ||
+      (scissors? && other_move.paper?)
   end
 
   def to_s
@@ -60,7 +53,7 @@ class Human < Player
   def choose_move
     mv = ''
     loop do
-      print "Choose one                |    rock    |   paper    |  scissors  |     "
+      print "Choose one |   rock   |  paper   | scissors |"
       mv = gets.chomp.downcase
       break if Move::VALUES.include?(mv)
       puts "That is not a valid choice"
@@ -88,22 +81,24 @@ class RPSGame
   end
 
   def display_welcome_message
-    puts "**************************************************************************"
-    puts "****************  Welcome to Paper Rock Scissors Game!!  *****************"
-    puts "****************             Version   0.2               *****************"
-    puts "**************************************************************************"
+    puts "**********************************************************"
+    puts "********  Welcome to Paper Rock Scissors Game!!  *********"
+    puts "********             Version   0.2               *********"
+    puts "**********************************************************"
   end
 
   def display_goodbye_message
-    puts "**************************************************************************"
-    puts "**************    Bye! Bye!    COME AGAIN     Bye! Bye!    ***************"
-    puts "**************************************************************************"
+    puts "**********************************************************"
+    puts "******    Bye! Bye!    COME AGAIN     Bye! Bye!    *******"
+    puts "**********************************************************"
+  end
+
+  def display_moves
+    puts "#{human.name}'s choice".ljust(25) +    " |    #{human.move}"
+    puts "#{computer.name}'s choice".ljust(25) + " |    #{computer.move}"
   end
 
   def display_winner
-    puts "#{human.name}'s choice".ljust(25) +    " |    #{human.move}"
-    puts "#{computer.name}'s choice".ljust(25) + " |    #{computer.move}"
-
     if human.move.beats?(computer.move)
       puts "#{human.name.upcase} IS THE WINNER!!!"
     elsif computer.move.beats?(human.move)
@@ -121,8 +116,7 @@ class RPSGame
       break if ['y', 'n'].include?(answer)
       puts "That is not a valid choice"
     end
-    return true if answer == 'y'
-    return false
+    answer == 'y' ? true : false
   end
 
   def play
@@ -130,6 +124,7 @@ class RPSGame
     loop do
       human.choose_move
       computer.choose_move
+      display_moves
       display_winner
       break unless play_again?
     end
@@ -137,4 +132,4 @@ class RPSGame
   end
 end
 
-new_game = RPSGame.new.play
+RPSGame.new.play
