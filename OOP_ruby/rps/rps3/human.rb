@@ -1,5 +1,10 @@
-class Human < Player
-  attr_accessor :name
+class Human
+  attr_accessor :name, :move
+  attr_reader :moves
+
+  def initialize
+    @moves = []
+  end
 
   def set_name
     loop do
@@ -18,6 +23,7 @@ class Human < Player
       break if ['paper', 'rock', 'scissors'].include?(mv)
       puts 'Not a valid choice'
     end
-    self.move = Move.new(mv)
+    @moves << self.move = Move.new(mv)
+    @moves.last
   end
 end
