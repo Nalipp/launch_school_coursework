@@ -1,5 +1,5 @@
-class Human
-  attr_accessor :name, :move
+class Human < Player
+  attr_accessor :name
 
   def set_name
     loop do
