@@ -1,10 +1,5 @@
-class Human
-  attr_accessor :name, :move
-  attr_reader :moves
-
-  def initialize
-    @moves = []
-  end
+class Human < Player
+  attr_accessor :name
 
   def set_name
     loop do

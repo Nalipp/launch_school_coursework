@@ -1,5 +1,6 @@
 require 'pry'
 
+require_relative 'player'
 require_relative 'human'
 require_relative 'computer'
 require_relative 'move'
@@ -33,7 +34,7 @@ class RPSGame
   end
 
   def display_score
-    puts "#{human.name.capitalize} #{score.human}:#{score.computer} Computer"
+    puts "#{human.name.capitalize} #{score.human.inspect}:#{score.computer.inspect} Computer"
   end
 
   def update_score
@@ -53,6 +54,14 @@ class RPSGame
     score.human >= value || score.computer >= value ? true : false
   end
 
+  def display_stats(player)
+    puts "#{human.name.capitalize} selected" if player == human
+    puts "Computer selected" if player == computer
+    player.history.each do |move, _|
+      p "#{move}".ljust(8) +  " : " + "#"*(player.history["#{move}"])
+    end
+  end
+
   def play_again?(message)
     again = ''
     loop do
@@ -70,7 +79,7 @@ class RPSGame
       display_line('Paper Rock Scissors!!!')
       display_score
       human.set_choice
-      computer.set_choice
+      computer.set_choice(human.history_percents)
       display_choices
       display_result
       update_score
@@ -78,6 +87,8 @@ class RPSGame
       break if series_winner?(series_value)
       break unless play_again?('Play again')
     end
+    display_stats(human)
+    display_stats(computer)
   end
 
   def start

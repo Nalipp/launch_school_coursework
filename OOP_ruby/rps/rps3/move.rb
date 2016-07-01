@@ -1,24 +1,14 @@
 class Move
+  attr_reader :value
+
   def initialize(value)
     @value = value
   end
 
-  def rock?
-    @value == 'rock'
-  end
-
-  def paper?
-    @value == 'paper'
-  end
-
-  def scissors?
-    @value == 'scissors'
-  end
-
   def beats?(other)
-    rock? && other.scissors? ||
-    paper? && other.rock? ||
-    scissors? && other.paper?
+    value == 'rock' && other.value == 'scissors' ||
+    value == 'paper' && other.value == 'rock' ||
+    value == 'scissors' && other.value == 'paper'
   end
 
   def to_s
