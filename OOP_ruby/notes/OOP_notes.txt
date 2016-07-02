@@ -49,4 +49,11 @@ What is the lookup path?
   say you have a Bulldog object called bud and you call: bud.swim. Ruby will first look for a method called swim in the Bulldog class,
   then traverse up the chain of super-classes; it will invoke the first method called swim and stop its traversal."
 
-What are collaborator objects?
+What is truthiness?
+  In ruby all objects evaluate to true except false and nil.
+  This does not mean the object is a true object just evaluates to true.
+  If it evaluates to true it is a truthy object.
+
+When comparing the equivalence between two variable assignments what is the difference between == and .equal?
+  == compares the 2 variables values
+  equal? evaluates if the variable points to the same object space in memory.

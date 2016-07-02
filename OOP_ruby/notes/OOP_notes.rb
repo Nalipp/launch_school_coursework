@@ -1,113 +1,15 @@
-module Swim
-  def swim
-    "I\'m swimming"
-  end
-end
+# int1 = 5
+# int2 = 5
+#
+# p int1.object_id
+# p int2.object_id
+#
+# p int1.object_id == int2.object_id
 
-class Pet
-  attr_reader :name
+sym1 = :something
+sym2 = :something
 
-  def initialize(name)
-    @name = name
-  end
-end
+p sym1.object_id
+p sym2.object_id
 
-class Mamals < Pet
-  def run
-    'running!'
-  end
-
-  def jump
-    'jumping!'
-  end
-end
-
-class Fish < Pet
-  include Swim
-end
-
-class Cat < Mamals
-  def speak
-    'meow!'
-  end
-
-  def swim
-    'Cats can\'t swim!'
-  end
-end
-
-class Dog < Mamals
-  include Swim
-
-  def speak
-    'bark!'
-  end
-
-  def fetch
-    'fetching!'
-  end
-end
-
-class BullDog < Dog
-  def swim
-    'I can\'t swim!'
-  end
-end
-
-#speak run jump swim fetch
-
-cat = Cat.allocate
-dog = Dog.allocate
-fish = Fish.allocate
-bulldog = BullDog.allocate
-
-p cat.speak
-p dog.speak
-p bulldog.swim
-p fish.swim
-
-# p Pet.ancestors
-# p Cat.ancestors
-# p Dog.ancestors
-# p BullDog.ancestors
-
-class Person
-  attr_accessor :name
-  attr_reader :pets
-
-  def initialize(name)
-    @name = name
-    @pets = []
-  end
-
-  def new_pet(pet)
-    @pets << pet
-  end
-
-  def pet_names
-    @pets.map { |pet| pet.name }
-  end
-
-  def pets_jump
-    @pets.map { |pet| pet.jump }
-  end
-end
-
- joe = Person.new("Joe")
- joe.name
- bruno = BullDog.new("bruno")
- mazy = Cat.new("mazy")
- choco = Dog.new("choco")
-
- joe.new_pet(bruno)
- joe.new_pet(mazy)
- joe.new_pet(choco)
-p joe.pet_names
-p joe.pets_jump
-
-p joe.pets.map { |pet| pet.swim }
-
-p Person.ancestors
-p BullDog.ancestors
-p Cat.ancestors
-p Dog.ancestors
+p sym1.object_id == sym2.object_id
