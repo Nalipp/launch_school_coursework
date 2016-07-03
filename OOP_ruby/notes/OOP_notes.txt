@@ -57,3 +57,15 @@ What is truthiness?
 When comparing the equivalence between two variable assignments what is the difference between == and .equal?
   == compares the 2 variables values
   equal? evaluates if the variable points to the same object space in memory.
+
+Variable scope
+  Instance variables '@' are scoped at the object level, so they are available within an instance method even without passing them in.
+  Class variable scope '@@' variable scoped at the class level
+
+Avoiding class variables
+  It's best to try and avoid class variables when possible because when a subclass inherits and changes a class variable it mutates the caller.
+    All subclasses will inherit the manipulated data.
+    Instead use class instance variables.
+
+  Class Variables have a very insidious behavior of allowing sub-classes to override super-class
+  class variables. Further, the change will affect all other sub-classes of the super-class.
