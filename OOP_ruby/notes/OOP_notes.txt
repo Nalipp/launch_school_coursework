@@ -69,3 +69,10 @@ Avoiding class variables
 
   Class Variables have a very insidious behavior of allowing sub-classes to override super-class
   class variables. Further, the change will affect all other sub-classes of the super-class.
+
+What is super?
+  Super allows us to call methods up the inheritance hierarchy. When calling super from within a method
+  super will search for and call a method with the same name.
+  Parameters are passed to the supper class via () instead of =
+  this way   : super(name)
+  instead of : @name = name
