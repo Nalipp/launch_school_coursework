@@ -1,125 +1,44 @@
-class Board
-  WINNING_LINES = [[1, 2, 3], [4, 5, 6], [7, 8, 9]] + # rows
-                  [[1, 4, 7], [2, 5, 8], [3, 6, 9]] + # cols
-                  [[1, 5, 9], [3, 5, 7]]              # diagonals
+require 'pry'
 
-  def initialize
-    @squares = {}
-    reset
-  end
-
-  def unmarked_keys
-    @squares.keys.select { |key| @squares[key].unmarked? }
-  end
-
-  def full?
-    unmarked_keys.empty?
-  end
-
-  def someone_won?
-    !!winning_marker
-  end
-
-  def three_identical_markers?(squares)
-    markers = squares.select(&:marked?).collect(&:marker)
-    return false if markers.size != 3
-    markers.min == markers.max
-  end
-
-  def winning_marker
-    WINNING_LINES.each do |line|
-      squares = @squares.values_at(*line)
-      if three_identical_markers?(squares) # => we wish this method existed
-        return squares.first.marker # => return the marker, whatever it is
-      end
-    end
-    nil
-  end
-
-  def reset
-    (1..9).each { |key| @squares[key] = Square.new }
-  end
-
-  def []=(num, marker)
-    @squares[num].marker = marker
-  end
-
-  def draw
-    puts "      |      |"
-    puts "  #{@squares[1]}   |  #{@squares[2]}   |  #{@squares[3]}   "
-    puts "      |      |"
-    puts "------+------+------"
-    puts "      |      |"
-    puts "  #{@squares[4]}   |  #{@squares[5]}   |  #{@squares[6]}   "
-    puts "      |      |"
-    puts "------+------+------"
-    puts "      |      |"
-    puts "  #{@squares[7]}   |  #{@squares[8]}   |  #{@squares[9]}   "
-    puts "      |      |"
-  end
-end
-
-class Square
-  INITIAL_MARKER = " "
-
-  attr_accessor :marker
-
-  def initialize(marker=INITIAL_MARKER)
-    @marker = marker
-  end
-
-  def to_s
-    @marker
-  end
-
-  def marked?
-    marker != INITIAL_MARKER
-  end
-
-  def unmarked?
-    marker == INITIAL_MARKER
-  end
-end
-
-class Player
-  attr_reader :marker
-
-  def initialize(marker)
-    @marker = marker
-  end
-
-  def to_s
-    @marker
-  end
-end
+require_relative "board"
+require_relative "player"
+require_relative "square"
+require_relative "score"
 
 class TTTGame
   HUMAN_MARKER = "X"
   COMPUTER_MARKER = "O"
   FIRST_TO_MOVE = HUMAN_MARKER
 
-  attr_reader :board, :human, :computer
+  attr_reader :board, :human, :computer, :score
 
   def initialize
     @board = Board.new
     @human = Player.new(HUMAN_MARKER)
     @computer = Player.new(COMPUTER_MARKER)
     @current_marker = FIRST_TO_MOVE
+    @score = Score.new
   end
 
   def play
     display_welcome_message
+    set_number_of_games
     clear
     loop do
       display_board
-
       loop do
         current_player_moves
         break if board.someone_won? || board.full?
 
         display_board_and_clear_screen
       end
+      clear
       display_result
+      if series_winner?
+        display_series_winner
+        score.reset
+        break
+      end
       break unless play_again?
       reset
       display_play_again_message
@@ -135,6 +54,29 @@ class TTTGame
     puts ""
   end
 
+  def series_winner?
+    score.human == score.max || score.computer == score.max
+  end
+
+  def display_series_winner
+    puts score.human == score.max ? "You win the series!" : "Computer wins the series!"
+  end
+
+  def set_number_of_games
+    number_of_games = nil
+    loop do
+      print "How many games? "
+      number_of_games = gets.chomp.to_i
+      break if number_of_games > 0
+      "not a vaid number"
+    end
+    score.play_until(number_of_games)
+  end
+
+  def display_score
+    puts score
+  end
+
   def display_goodbye_message
     puts "Good Bye! Thanks for playing!"
   end
@@ -145,6 +87,7 @@ class TTTGame
   end
 
   def display_board
+    display_score
     puts""
     puts " You're a #{human.marker}"
     puts " Computer is a #{computer.marker}"
@@ -153,8 +96,16 @@ class TTTGame
     puts ""
   end
 
+  def joinor(arr, symbol=", ", word="or")
+    if arr.length > 2
+      "#{arr[0..-2].join("#{symbol}")}#{symbol} #{word} #{arr[-1]}"
+    else
+      arr.join
+    end
+  end
+
   def human_moves
-    print "Choose a square between #{board.unmarked_keys.join(', ')}: "
+    print "Choose available square #{joinor(board.unmarked_keys)}: "
     square = nil
     loop do
       square = gets.chomp.to_i
@@ -174,7 +125,9 @@ class TTTGame
     case board.winning_marker
     when human.marker
       puts "You won!"
+      score.human_plus_one
     when computer.marker
+      score.computer_plus_one
       puts "Computer won!"
     else
       puts "It's a tie!"
@@ -187,7 +140,7 @@ class TTTGame
       print 'play again? [y/n]'
       answer = gets.chomp.downcase
       break if ['y', 'n'].include?(answer)
-      puts "invaluidd choice"
+      puts "invalid choice"
     end
     answer == 'y'
   end
@@ -204,7 +157,6 @@ class TTTGame
   def display_play_again_message
     puts "Let's play again!"
     @current_marker = FIRST_TO_MOVE
-    puts ""
   end
 
   def human_turn?
