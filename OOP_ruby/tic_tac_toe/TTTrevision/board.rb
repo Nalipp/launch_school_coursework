@@ -1,8 +1,11 @@
 class Board
+  attr_accessor :squares
+
   attr_accessor :find_at_risk_square
   WINNING_LINES = [[1, 2, 3], [4, 5, 6], [7, 8, 9]] + # rows
                   [[1, 4, 7], [2, 5, 8], [3, 6, 9]] + # cols
                   [[1, 5, 9], [3, 5, 7]]              # diagonals
+  CORNERS = [1, 3, 7, 9]
 
   def initialize
     @squares = {}
@@ -37,12 +40,28 @@ class Board
     nil
   end
 
-  def find_at_risk_square
+  def find_two(marker)
     WINNING_LINES.each do |line|
-      if @squares.values_at(*line).select { |square| square.marker.include?("X") }.count == 2
+      if @squares.values_at(*line).select { |square| square.marker.include?(marker) }.count == 2
         squares = @squares.select{|k,v| line.include?(k) && v.marker == " " }.keys.first
         return squares if squares != nil
       end
+    end
+    false
+  end
+
+  def find_at_risk_square
+    find_two("X")
+  end
+
+  def find_winning_square
+    find_two("O")
+  end
+
+  def mark_corner
+    CORNERS.each do |corner|
+      available_squares = @squares.select { |key, value| key if value.marker == " " }
+      return corner if available_squares.include?(corner)
     end
     false
   end

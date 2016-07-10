@@ -6,23 +6,25 @@ require_relative "square"
 require_relative "score"
 
 class TTTGame
-  HUMAN_MARKER = "X"
-  COMPUTER_MARKER = "O"
-  FIRST_TO_MOVE = HUMAN_MARKER
+  @@computer_marker = "O"
+  @@first_to_move = []
+  @@human_marker = []
 
   attr_reader :board, :human, :computer, :score
 
   def initialize
     @board = Board.new
-    @human = Player.new(HUMAN_MARKER)
-    @computer = Player.new(COMPUTER_MARKER)
-    @current_marker = FIRST_TO_MOVE
+    @current_marker = nil
     @score = Score.new
   end
 
   def play
     display_welcome_message
     set_number_of_games
+    set_player_marker
+    set_player_name
+    set_computer_name
+    set_first_to_move
     clear
     loop do
       display_board
@@ -52,6 +54,48 @@ class TTTGame
   def display_welcome_message
     puts "Welcome to Tic Tac Toe!"
     puts ""
+  end
+
+  def set_player_marker
+    puts "What marker do you want to use?"
+    player_marker = gets.chomp.upcase
+    if player_marker == ("" || " ")
+      @@human_marker = "X"
+    elsif player_marker == "O"
+      @@human_marker = "O"
+      @@computer_marker = "X"
+    else
+      @@human_marker = player_marker
+    end
+  end
+
+  def set_first_to_move
+    loop do
+      puts "Who is first? [c]omputer [h]uman"
+      first_player = gets.chomp.downcase
+      if first_player == "c"
+        @@first_to_move = @@computer_marker
+        @current_marker = @@computer_marker
+        break
+      elsif first_player == "h"
+        @@first_to_move = @@human_marker
+        @current_marker = @@human_marker
+        break
+      else
+        puts "not a valid choice"
+      end
+    end
+  end
+
+  def set_player_name
+    puts "What is your name?"
+    player_name = gets.chomp.capitalize
+    @human = Player.new(@@human_marker, player_name)
+  end
+
+  def set_computer_name
+    computer_name = ["Dido", "Ernie1", "R2D2", "Obie One", "Prankster"].sample
+    @computer = Player.new(@@computer_marker, computer_name)
   end
 
   def series_winner?
@@ -89,8 +133,8 @@ class TTTGame
   def display_board
     display_score
     puts""
-    puts " You're a #{human.marker}"
-    puts " Computer is a #{computer.marker}"
+    puts " #{human.name} : #{human.marker}"
+    puts " #{computer.name} : #{computer.marker}"
     puts ""
     board.draw
     puts ""
@@ -115,20 +159,17 @@ class TTTGame
     board[square] = human.marker
   end
 
-  def computer_moves_random
-  end
-
-  def at_risk_square?
-  end
-
-  def mark_at_risk_square
-  end
-
   def computer_moves
-    if board.find_at_risk_square == false
-      board[board.unmarked_keys.sample] = computer.marker
-    else
+    if board.find_winning_square != false
+      board[board.find_winning_square] = computer.marker
+    elsif board.find_at_risk_square != false
       board[board.find_at_risk_square] = computer.marker
+    elsif board.squares[5].marker == " "
+      board.squares[5].marker = computer.marker
+    elsif board.mark_corner != false
+      board[board.mark_corner] = computer.marker
+    else
+      board[board.unmarked_keys.sample] = computer.marker
     end
   end
 
@@ -169,20 +210,20 @@ class TTTGame
 
   def display_play_again_message
     puts "Let's play again!"
-    @current_marker = FIRST_TO_MOVE
+    @current_marker = @@first_to_move
   end
 
   def human_turn?
-    @current_marker == HUMAN_MARKER
+    @current_marker == @@human_marker
   end
 
   def current_player_moves
     if human_turn?
       human_moves
-      @current_marker = COMPUTER_MARKER
+      @current_marker = @@computer_marker
     else
       computer_moves
-      @current_marker = HUMAN_MARKER
+      @current_marker = @@human_marker
     end
   end
 end
