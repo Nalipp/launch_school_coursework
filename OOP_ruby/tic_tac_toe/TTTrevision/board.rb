@@ -1,4 +1,5 @@
 class Board
+  attr_accessor :find_at_risk_square
   WINNING_LINES = [[1, 2, 3], [4, 5, 6], [7, 8, 9]] + # rows
                   [[1, 4, 7], [2, 5, 8], [3, 6, 9]] + # cols
                   [[1, 5, 9], [3, 5, 7]]              # diagonals
@@ -29,11 +30,21 @@ class Board
   def winning_marker
     WINNING_LINES.each do |line|
       squares = @squares.values_at(*line)
-      if three_identical_markers?(squares) # => we wish this method existed
-        return squares.first.marker # => return the marker, whatever it is
+      if three_identical_markers?(squares)
+        return squares.first.marker
       end
     end
     nil
+  end
+
+  def find_at_risk_square
+    WINNING_LINES.each do |line|
+      if @squares.values_at(*line).select { |square| square.marker.include?("X") }.count == 2
+        squares = @squares.select{|k,v| line.include?(k) && v.marker == " " }.keys.first
+        return squares if squares != nil
+      end
+    end
+    false
   end
 
   def reset

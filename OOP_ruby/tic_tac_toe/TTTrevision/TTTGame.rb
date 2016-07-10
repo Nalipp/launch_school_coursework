@@ -115,8 +115,21 @@ class TTTGame
     board[square] = human.marker
   end
 
+  def computer_moves_random
+  end
+
+  def at_risk_square?
+  end
+
+  def mark_at_risk_square
+  end
+
   def computer_moves
-    board[board.unmarked_keys.sample] = computer.marker
+    if board.find_at_risk_square == false
+      board[board.unmarked_keys.sample] = computer.marker
+    else
+      board[board.find_at_risk_square] = computer.marker
+    end
   end
 
   def display_result
