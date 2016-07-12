@@ -1,0 +1,77 @@
+Methods that take blocks
+EXAMPLE
+  def greeting(str)
+    str
+  end
+
+  p greeting("hi") #valid
+  p greeting("hi") { puts "world" } #valid but block has no effect
+
+EXAMPLE
+def greeting(str)
+  yield
+  str
+end
+
+p greeting('hi') #invlid LocalJumpError
+p greeting('world') { puts "hi"} #valid
+
+EXAMPLE
+def greeting(str)
+  yield if block_given?
+  str
+end
+
+p greeting('hi') #valid
+p greeting('world') { puts "hi"} #valid
+
+1  # method implementation
+2  def say(words)
+3    yield if block_given?
+4    puts "> " + words
+5  end
+6
+7  # method invocation
+8  say("hi there") do
+9    system 'clear'
+10 end
+  #operations order [8, 2, 3, 9, 4, 5]
+
+
+Yielding With An Argument
+
+3.times do |num|
+  puts num
+end
+
+what is 3?                   # The calling argument
+what is times?               # The method being called
+what is |num|?               # The argument parameter being passed to the block (num) is the block local variable.
+                               Warning! if this block is not unique it can result in variable shadowing
+what is do..end?             # The block
+
+EXAMPLE
+# method implementation
+def increment(number)
+  if block_given?
+    yield(number + 1)
+  else
+    number + 1
+  end
+end
+
+# method invocation
+increment(5) do |num|
+  puts num
+end
+
+#order of operations [11, 2, 3, 4, 11, 12, 13, 8]
+
+EXAMPLE
+def compare(str)
+  puts "Before: #{str}"
+  after = yield(str)
+  puts "After: #{after}"
+end
+
+compare('hello') { |word| word.slice(1..2) } # el

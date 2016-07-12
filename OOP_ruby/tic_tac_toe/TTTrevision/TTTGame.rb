@@ -6,15 +6,14 @@ require_relative "square"
 require_relative "score"
 
 class TTTGame
-  @@computer_marker = "O"
-  @@first_to_move = []
-  @@human_marker = []
-
   attr_reader :board, :human, :computer, :score
 
   def initialize
-    @board = Board.new
+    @first_to_move = []
+    @human_marker = []
+    @computer_marker = "O"
     @current_marker = nil
+    @board = Board.new
     @score = Score.new
   end
 
@@ -31,7 +30,6 @@ class TTTGame
       loop do
         current_player_moves
         break if board.someone_won? || board.full?
-
         display_board_and_clear_screen
       end
       clear
@@ -45,7 +43,6 @@ class TTTGame
       reset
       display_play_again_message
     end
-
     display_goodbye_message
   end
 
@@ -60,12 +57,12 @@ class TTTGame
     puts "What marker do you want to use?"
     player_marker = gets.chomp.upcase
     if player_marker == ("" || " ")
-      @@human_marker = "X"
+      @human_marker = "X"
     elsif player_marker == "O"
-      @@human_marker = "O"
-      @@computer_marker = "X"
+      @human_marker = "O"
+      @computer_marker = "X"
     else
-      @@human_marker = player_marker
+      @human_marker = player_marker
     end
   end
 
@@ -74,12 +71,12 @@ class TTTGame
       puts "Who is first? [c]omputer [h]uman"
       first_player = gets.chomp.downcase
       if first_player == "c"
-        @@first_to_move = @@computer_marker
-        @current_marker = @@computer_marker
+        @first_to_move = @computer_marker
+        @current_marker = @computer_marker
         break
       elsif first_player == "h"
-        @@first_to_move = @@human_marker
-        @current_marker = @@human_marker
+        @first_to_move = @human_marker
+        @current_marker = @human_marker
         break
       else
         puts "not a valid choice"
@@ -90,12 +87,12 @@ class TTTGame
   def set_player_name
     puts "What is your name?"
     player_name = gets.chomp.capitalize
-    @human = Player.new(@@human_marker, player_name)
+    @human = Player.new(@human_marker, player_name)
   end
 
   def set_computer_name
     computer_name = ["Dido", "Ernie1", "R2D2", "Obie One", "Prankster"].sample
-    @computer = Player.new(@@computer_marker, computer_name)
+    @computer = Player.new(@computer_marker, computer_name)
   end
 
   def series_winner?
@@ -103,7 +100,7 @@ class TTTGame
   end
 
   def display_series_winner
-    puts score.human == score.max ? "You win the series!" : "Computer wins the series!"
+    puts score.human == score.max ? "You win series!" : "Computer wins series!"
   end
 
   def set_number_of_games
@@ -142,7 +139,7 @@ class TTTGame
 
   def joinor(arr, symbol=", ", word="or")
     if arr.length > 2
-      "#{arr[0..-2].join("#{symbol}")}#{symbol} #{word} #{arr[-1]}"
+      "#{arr[0..-2].join(symbol.to_s)}#{symbol} #{word} #{arr[-1]}"
     else
       arr.join
     end
@@ -210,20 +207,20 @@ class TTTGame
 
   def display_play_again_message
     puts "Let's play again!"
-    @current_marker = @@first_to_move
+    @current_marker = @first_to_move
   end
 
   def human_turn?
-    @current_marker == @@human_marker
+    @current_marker == @human_marker
   end
 
   def current_player_moves
     if human_turn?
       human_moves
-      @current_marker = @@computer_marker
+      @current_marker = @computer_marker
     else
       computer_moves
-      @current_marker = @@human_marker
+      @current_marker = @human_marker
     end
   end
 end
