@@ -35,8 +35,6 @@ class BlackJack
     [human, computer].each do |player|
       if player.hand_total == 21
         puts "#{player.name} hit 21!!"
-        puts "#{player.name} is the winner!"
-        break
       elsif player.hand_total > 21
         puts "#{player.name} busted!!"
       end

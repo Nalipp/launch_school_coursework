@@ -29,6 +29,10 @@ class Player
     end
   end
 
+  def include_ace?
+    @hand.map { |card| card.rank == "Ace"}.include?(true)
+  end
+
   def hand_total
     total = 0
     @hand.each do |card|
@@ -44,7 +48,7 @@ class Player
         total += card.rank
       end
     end
-    total
+    include_ace? && total > 21 ? total -= 10 : total
   end
 
   def display_hand_total(player)
