@@ -42,8 +42,10 @@ class BlackJack
 
     if human.hand_total > computer.hand_total || busted?(computer)
       puts "#{human.name} is the winner!!"
-    else
+    elsif computer.hand_total > human.hand_total || busted?(human)
       puts "#{computer.name} is the winner!!"
+    else
+      puts "It's a tie!!"
     end
   end
 
@@ -55,12 +57,13 @@ class BlackJack
       display_computer_round
       break if twenty_one?(computer) || busted?(computer)
       break if computer.hand_total > human.hand_total
-      if computer.hand_total <= human.hand_total
+      if computer.hand_total <= 16
         deal(computer, 1)
         puts "Dealer hits"
         sleep(2)
         display_computer_round
       end
+      break if computer.hand_total > 16
     end
   end
 
