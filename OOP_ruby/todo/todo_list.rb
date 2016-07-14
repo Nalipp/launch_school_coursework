@@ -14,6 +14,13 @@ class TodoList
     @todos << todo
   end
 
+  def <<(todo)
+    raise TypeError, 'can only add Todo objects' unless todo.instance_of? Todo
+
+    @todos << todo
+  end
+  alias_method :add, :<<
+
   def size
     @todos.size
   end
@@ -50,11 +57,114 @@ class TodoList
     @todos.delete_at(num) if @todos.fetch(num)
   end
 
+  def done?
+    @todos.all? { |todo| todo.done? }
+  end
+
+  def each
+    @todos.each do |todo|
+      yield(todo)
+    end
+    self
+  end
+
+  def select
+    list = TodoList.new(title)
+    @todos.each do |todo|
+      list.add(todo) if yield(todo)
+    end
+    list
+  end
+
+  def find_by_title(title)
+    @todos.select { |todo| todo.title == title }.first
+  end
+
+  def all_done
+    @todos.select { |todo| todo.done? }
+  end
+
+  def all_not_done
+    @todos.select { |todo| !todo.done? }
+  end
+
+  def mark_done(title)
+    @todos.each do |todo|
+      if todo.title == title
+        return todo.done!
+      end
+    end
+  end
+
+  def mark_all_done
+    @todos.each { |todo| todo.done! }
+  end
+
+  def mark_all_undone
+    @todos.each { |todo| todo.undone! }
+  end
+
   def to_s
     puts "---- Today's Todos ----"
     @todos.each { |item| puts item }
   end
+
+  def to_a
+    @todos
+  end
 end
+
+todo1 = Todo.new("Buy milk")
+todo2 = Todo.new("Clean room")
+todo3 = Todo.new("Go to gym")
+
+list = TodoList.new("Today's Todos")
+list.add(todo1)
+list.add(todo2)
+list.add(todo3)
+
+# p list.find_by_title("Buy milk")
+# p list.all_done
+# p list.all_not_done
+p list.mark_done('Buy milk')
+# p list.mark_all_done
+# p list.mark_all_undone
+
+puts list
+
+
+
+
+# find_by_title	takes a string as argument, and returns the first Todo object that matches the argument. Return nil if no todo is found.
+# all_done	returns new TodoList object containing only the done items
+# all_not_done	returns new TodoList object containing only the not done items
+# mark_done	takes a string as argument, and marks the first Todo object that matches the argument as done.
+# mark_all_done	mark every todo as done
+# mark_all_undone	mark every todo as not done
+
+############################################################################################################
+
+# todo1 = Todo.new("Buy milk")
+# todo2 = Todo.new("Clean room")
+# todo3 = Todo.new("Go to gym")
+#
+# list = TodoList.new("Today's Todos")
+# list.add(todo1)
+# list.add(todo2)
+# list.add(todo3)
+#
+# todo1.done!
+#
+# results = list.select { |todo| todo.done? }
+#
+# p results
+
+# list.each do |todo|
+#   puts todo                   # calls Todo#to_s
+# end
+
+
+############################################################################################################
 
 todo1 = Todo.new("Buy milk")
 todo2 = Todo.new("Clean room")
