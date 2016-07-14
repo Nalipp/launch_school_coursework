@@ -123,3 +123,37 @@ end
 
 
 Build a reduce method
+
+# p [1, 2, 3].reduce { |acc, num| acc + num } #6
+# p [1, 2, 3].reduce { |acc, num| acc + num if num.odd? } #error
+# p [1, 2, 3].reduce(10) { |acc, num| acc + num } #16
+
+def reduce(arr, acc=0)
+  counter = 0
+  return_acc = acc
+  while counter < arr.length
+    return_acc += yield(arr)
+    counter += 1
+  end
+  return_acc
+end
+
+array = [1, 2, 3, 4, 5]
+
+# p reduce(array) { |acc, num| acc + num }                    # => 15
+# p reduce(array, 10) { |acc, num| acc + num }                # => 25
+# p reduce(array) { |acc, num| acc + num if num.odd? }        # => NoMethodError: undefined method `+' for nil:NilClass
+
+
+
+Proc intro example
+
+def call_me(some_code)
+  some_code.call            # call will execute the "chunk of code" that passed in
+end
+
+name = "Robert"
+chunk_of_code = Proc.new {puts "hi #{name}"}
+name = "Vinny"
+
+call_me(chunk_of_code)
