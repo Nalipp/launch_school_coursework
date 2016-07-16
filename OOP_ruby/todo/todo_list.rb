@@ -9,11 +9,6 @@ class TodoList
     @todos = []
   end
 
-  # def add(todo)
-  #   raise TypeError, " Can only add Todo objects" unless todo.class == Todo
-  #   @todos << todo
-  # end
-
   def <<(todo)
     raise TypeError, 'can only add Todo objects' unless todo.instance_of? Todo
     @todos << todo

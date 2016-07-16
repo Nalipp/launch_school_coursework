@@ -1,7 +1,9 @@
-require 'pry'
+require 'simplecov'
+SimpleCov.start
 require 'minitest/autorun'
 require 'minitest/reporters'
 MiniTest::Reporters.use!
+
 
 require_relative 'todo_list'
 
@@ -18,12 +20,19 @@ class TodoListTest < MiniTest::Test
     @list.add(@todo3)
   end
 
+  def test_initialize
+    assert_equal("Buy milk", @todo1.title)
+    @list = TodoList.new("New list")
+    assert_equal([], @list.to_a)
+  end
+
   def test_to_a
     assert_equal(@todos, @list.to_a)
   end
 
   def test_size
     assert_equal(3, @list.size)
+    assert_equal(@todos[0], @todo1)
   end
 
   def test_first
@@ -98,6 +107,14 @@ class TodoListTest < MiniTest::Test
     assert_equal(@list.done?, true)
   end
 
+  def test_all_undone_bang
+    @list.mark_all_undone!
+    assert_equal(@todo1.done?, false)
+    assert_equal(@todo2.done?, false)
+    assert_equal(@todo3.done?, false)
+    assert_equal(@list.done?, false)
+  end
+
   def test_remove_at
     assert_raises(IndexError) { @list.remove_at(100) }
     @list.remove_at(1)
@@ -148,8 +165,29 @@ class TodoListTest < MiniTest::Test
 
   def test_select
     @todo1.done!
+    list = TodoList.new(@list.title)
+    list.add(@todo1)
+
+    assert_equal(list.title, @list.title)
     assert_equal([@todo1], @todos.select { |todo| todo.done? })
   end
 
+  def test_find_by_title
+    assert_equal(@todo1, @list.find_by_title("Buy milk"))
+  end
 
+  def test_all_dones
+    @list.mark_done_at(1)
+    @list.mark_done_at(2)
+    assert_equal([@todo2, @todo3], @list.all_dones)
+  end
+
+  def test_all_not_dones
+    assert_equal([@todo1, @todo2, @todo3], @list.all_not_dones)
+  end
+
+  def test_mark_done_by_title
+    @list.mark_done("Buy milk")
+    assert_equal(@todo1.done?, true)
+  end
 end
