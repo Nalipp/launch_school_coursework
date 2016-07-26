@@ -15,7 +15,7 @@ class SumOfMultiples
 
   def arr_of_multiples(num)
     @multiples.each_with_object([]) do |multiples, arr|
-      arr << (0...num).select { |num| num % multiples == 0 }
+      arr << (0...num).select { |number| number % multiples == 0 }
     end
   end
 

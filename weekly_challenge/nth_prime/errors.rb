@@ -1,2 +1,0 @@
-class ArgumentError < StandardError
-end

@@ -1,8 +1,6 @@
-require_relative 'errors'
-
 class Prime
   def self.nth(num)
-    raise ArgumentError, 'number must be greater than zero' if num < 1
+    raise ArgumentError if num < 1
     index = 2
     return_arr = []
     while return_arr.length < num

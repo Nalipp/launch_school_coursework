@@ -1,4 +1,4 @@
-class Triangle
+\class Triangle
   attr_reader :base, :triangle
 
   def initialize(base)

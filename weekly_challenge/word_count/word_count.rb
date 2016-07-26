@@ -11,7 +11,9 @@ class Phrase
   end
 
   def word_count
-    clean_words.uniq.each { |word| counts["#{word}"] = clean_words.count("#{word}") }
+    clean_words.uniq.each do |word|
+      counts[word.to_s] = clean_words.count(word.to_s)
+    end
     counts
   end
 end
