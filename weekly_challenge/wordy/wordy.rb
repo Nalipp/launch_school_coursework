@@ -1,5 +1,3 @@
-require 'pry'
-
 class WordProblem
   attr_reader :string
 
@@ -12,7 +10,7 @@ class WordProblem
   end
 
   def calculate(int1, operation, int2)
-    raise ArgumentError unless %w[plus minus multiplied divided].include?(operation)
+    raise ArgumentError unless %w(plus minus multiplied divided).include?(operation)
     return int1.to_i + int2.to_i if operation == 'plus'
     return int1.to_i - int2.to_i if operation == 'minus'
     return int1.to_i * int2.to_i if operation == 'multiplied'
@@ -26,8 +24,8 @@ class WordProblem
 
     (clean_string.length / 2).times do
       int1 = current_total
-      operation = clean_string[count+1]
-      int2 = clean_string[count+2]
+      operation = clean_string[count + 1]
+      int2 = clean_string[count + 2]
 
       return_arr << calculate(int1, operation, int2)
       current_total = return_arr.last
