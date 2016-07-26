@@ -1,11 +1,17 @@
 class Phrase
+  attr_reader :words, :counts
+
   def initialize(phrase)
     @counts = Hash.new
-    @words = phrase.downcase.gsub(/[^a-z'0-9\s]/i, '').split
+    @words = phrase
+  end
+
+  def clean_words
+    words.downcase.gsub(/[^a-z'0-9\s( '|' )]/, ' ').gsub(/( '|' )/, ' ').split
   end
 
   def word_count
-    @words.uniq.each { |word| @counts["#{word}"] = @words.count("#{word}") }
-    @counts
+    clean_words.uniq.each { |word| counts["#{word}"] = clean_words.count("#{word}") }
+    counts
   end
 end
