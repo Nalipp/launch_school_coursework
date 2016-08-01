@@ -1,18 +1,18 @@
 require 'pry'
 require "socket"
 
-server = TCPServer.new("localhost", 3006)
+server = TCPServer.new("localhost", 3010)
 
 def parse_request(request_line)
   http_method, path_and_parameters, http = request_line.split
-  path_and_parameters = "/?rolls=0&sides=0" if path_and_parameters == '/'
 
   path, params = path_and_parameters.split('?')
 
-  params = params.split('&').each_with_object({}) do |pair, hash|
-    key, value = pair.split('=')
+  params = (params || "").split('&').each_with_object({}) do |param, hash|
+    key, value = param.split('=')
     hash[key] = value
   end
+
   [http_method, path, params]
 end
 
@@ -23,6 +23,7 @@ loop do
   next if !request_line || request_line =~ /favicon/
 
   http_method, path, params = parse_request(request_line)
+  number = params.values.last.to_i
 
   client.puts "HTTP/1.0 200 OK"
   client.puts "Content-Type: text/html"
@@ -34,15 +35,11 @@ loop do
   client.puts path
   client.puts params
   client.puts "</pre>"
-  client.puts "<H1>Rolls!</H1>"
 
-  rolls = params['rolls'].to_i
-  sides = params['sides'].to_i
-
-  rolls.times do
-    roll = rand(sides) + 1
-    client.puts "<p>", roll, "</p>"
-  end
+  client.puts "<H1>Counter</H1>"
+  client.puts "<p>The current number is #{number}.</p>"
+  client.puts "<a href='/?count=#{number + 1}'>up</a>"
+  client.puts "<a href='/?count=#{number - 1}'>down</a>"
 
   client.puts "</body>"
   client.puts "</html>"
@@ -50,4 +47,4 @@ loop do
   client.close
 end
 
-#example : http://localhost:3006/?rolls=12&sides=12
+#example : http://localhost:3010/?count=0
