@@ -41,11 +41,11 @@ end
 def search_chapters(query)
   return nil if query.nil?
 
-  results = @contents.each_with_index.map do |chapter, index|
-
+  results = []
+  @contents.each_with_index do |chapter, index|
     number = index + 1
     if File.read("data/chp#{number}.txt").include?(query)
-      [chapter.slice(0..-2)]
+      results << [chapter.slice(0..-2)]
     end
   end
   results
