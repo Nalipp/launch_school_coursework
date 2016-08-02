@@ -1,3 +1,5 @@
+require 'pry'
+
 require "sinatra"
 require "sinatra/reloader"
 require "tilt/erubis"
@@ -12,6 +14,14 @@ helpers do
       "<p>#{line}</p>"
     end.join
   end
+
+  def search_chapter(text, params)
+    text.include?(params)
+  end
+end
+
+not_found do
+  redirect "/"
 end
 
 get "/" do
@@ -26,4 +36,22 @@ get "/chapters/:number" do
   @title = "Chapter #{number} : #{chapter_title}"
   @chapter = File.read("data/chp#{number}.txt")
   erb :chapter
+end
+
+def search_chapters(query)
+  return nil if query.nil?
+
+  results = @contents.each_with_index.map do |chapter, index|
+
+    number = index + 1
+    if File.read("data/chp#{number}.txt").include?(query)
+      [chapter.slice(0..-2)]
+    end
+  end
+  results
+end
+
+get "/search" do
+  @results = search_chapters(params[:query])
+  erb :search
 end
