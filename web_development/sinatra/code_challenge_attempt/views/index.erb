@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>City Data</title>
+
+    <link rel="stylesheet" href="stylesheets/city_data.css">
+
+  </head>
+  <body>
+    <h1>City Data</h1>
+    <div class="border-40">
+      <% @city_names.each do |city_name| %>
+      <div class="city-background">
+        <a href="<%= city_name %>"><%= city_name.capitalize %></a>
+      </div>
+      <% end %>
+
+      <% if params[:sort] == "reverse_order" %>
+        <a href="/">sort A-Z</a>
+      <% else %>
+        <a href="/?sort=reverse_order">sort Z-A</a>
+      <% end %>
+    </div>
+  </body>
+</html>

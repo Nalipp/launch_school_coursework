@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Pets</title>
+  </head>
+  <body>
+    <h1>All Pets</h1>
+    <% @list.each do |pet| %>
+      <a href="<%= pet %>"/><p><%= pet.slice(0..-6) %></p>
+    <% end %>
+    <% if params[:sort] == "desc" %>
+      <a href="/">sort order</a>
+    <% else %>
+      <a href="/reverse_order">reverse order</a>
+    <% end %>
+  </body>
+</html>
