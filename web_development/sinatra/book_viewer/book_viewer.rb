@@ -8,9 +8,9 @@ end
 
 helpers do
   def in_paragraphs(text)
-    copy = text.insert(0, '<p>')
-    copy = copy.gsub("\n\n", "</p> <p>")
-    copy << "</p>"
+    text.split("\n\n").map do |line|
+      "<p>#{line}</p>"
+    end.join
   end
 end
 
