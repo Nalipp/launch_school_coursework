@@ -9,32 +9,8 @@ get "/" do
   erb :index
 end
 
-get "/cape_town" do
-  @city_name = "Cape Town"
-  @image_path = "images/cape_town.jpg"
-  erb :city_data
-end
-
-get "/gold_coast" do
-  @city_name = "Gold Coast"
-  @image_path = "images/gold_coast.jpg"
-  erb :city_data
-end
-
-get "/salzburg" do
-  @city_name = "Salzburg"
-  @image_path = "images/salzburg.jpg"
-  erb :city_data
-end
-
-get "/san_francisco" do
-  @city_name = "San Francisco"
-  @image_path = "images/san_francisco.jpg"
-  erb :city_data
-end
-
-get "/vailparaso" do
-  @city_name = "Vailparaso"
-  @image_path = "images/vailparaso.jpg"
+get "/:name" do
+  @city_name = params[:name].gsub("_", " ").capitalize
+  @image_path = "images/#{params[:name]}.jpg"
   erb :city_data
 end
