@@ -38,15 +38,21 @@ get "/chapters/:number" do
   erb :chapter
 end
 
-def search_chapters(query)
-  return nil if query.nil?
-
-  results = []
-  @contents.each_with_index do |chapter, index|
+def each_chapter(&block)
+  @contents.each_with_index do |name, index|
     number = index + 1
-    if File.read("data/chp#{number}.txt").include?(query)
-      results << [chapter.slice(0..-2)]
-    end
+    contents = File.read("data/chp#{number}.txt")
+    yield(number, name, contents)
+  end
+end
+
+def search_chapters(query)
+  results = []
+
+  return results unless query
+
+  each_chapter do |number, name, contents|
+    results << { number: number, name: name } if contents.include?(query)
   end
   results
 end
