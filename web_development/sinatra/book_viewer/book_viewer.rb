@@ -15,11 +15,10 @@ helpers do
     end.join
   end
 
-  def find_paragraph_number(text, query)
-    text.split("\n\n").each_with_index.select do |paragraph, index|
-      return index if paragraph.include?(query)
-    end
+  def clean(text)
+    text.to_s.gsub('"', '').gsub('[', '').gsub(']', '').gsub('\\', '').gsub("\n", '')
   end
+
 end
 
 not_found do
@@ -59,34 +58,25 @@ def search_chapters(query)
   results
 end
 
-def search_paragraphs(query)
-  search_chapters(query) # returns this format {:number=>5, :name=>"The Five Orange Pips\n"}
-  all_chapter_numbers = search_chapters(query).map { |chapter| chapter[:number] } # [1, 3, 5, 6, 7]
-
-  all_chapter_numbers.map do |chapter_number|
-    text = File.read("data/chp#{chapter_number}.txt")
-    paragraph_number = find_paragraph_number(text, query)
-
-    [chapter_number, paragraph_number]
+def return_paragraphs(query, chapters)
+  paragraphs = chapters.each_with_object({}) do |chp, hash|
+    text = File.read("data/chp#{chp[:number]}.txt")
+    paragraph = text.split("\n\n").select { |paragraph| paragraph.include?(query)}
+    hash["#{chp[:number]}"] = clean(paragraph)
   end
 end
 
-def return_paragraph_text(chapter_paragraph_number)
-  arr_of_paragraph_text = []
-
-  chapter_paragraph_number.each do |arr| # arr[0] == chapter_number, arr[1] == paragraph_number
-    chapter = File.read("data/chp#{arr[0]}.txt")
-
-    chapter.split("\n\n").each_with_index do |paragraph, index|
-      arr_of_paragraph_text << [arr[0], paragraph]  if index == arr[1]
-    end
+def return_sentences(query, paragraphs)
+  sentences = paragraphs.map do |key, value|
+    sentences = value.split(/[!.?]/)
+    sentences.select { |sentence| sentence.include?(query) }
   end
-  arr_of_paragraph_text
 end
 
 get "/search" do
-  @chapters = search_chapters(params[:query]) # returns this format {:number=>5, :name=>"The Five Orange Pips\n"}
-  @chapter_paragraph_number = search_paragraphs(params[:query]) # [chapter_number, paragraph_number] / [[1, 186], [4, 105]]
-  @all_paragraphs = return_paragraph_text(@chapter_paragraph_number)
+  query = params[:query]
+  @chapters = search_chapters(query) # returns this format {:number=>5, :name=>"The Five Orange Pips\n"}
+  @paragraphs = return_paragraphs(query, @chapters)
+  @sentences = return_sentences(query, @paragraphs)
   erb :search
 end

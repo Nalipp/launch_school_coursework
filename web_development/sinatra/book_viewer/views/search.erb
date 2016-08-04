@@ -9,7 +9,13 @@
   <p>Sorry, no matches were found.</p>
 <% else %>
   <h2 class="content-subhead">Results for '<%= params[:query]%>'</h2>
-  <% @all_paragraphs.each do |paragraph| %>
-    <h4>Chapter number : <%= paragraph[0] %></h4><%= in_paragraphs(paragraph.to_s) %>
-  <% end %>
+    <% @sentences.each do |sentence| %>
+      <li><a href="https://www.google.com"><%= clean(sentence) %></a></li>
+      <br>
+    <% end %>
+
+    <% @paragraphs.each do |paragraph| %>
+    <h3>Chapter : <%= paragraph[0] %></h3>
+      <p><%= paragraph[1] %></p>
+    <% end %>
 <% end %>
