@@ -70,32 +70,6 @@ def search_chapters(query)
   results
 end
 
-def search_paragraphs(query)
-  results = []
-  return results unless query
-
-  @contents.each_with_index do |name, index|
-    number = index + 1
-    contents = File.read("data/chp#{number}.txt")
-    paragraph = contents.split("\n\n").select { |pg| pg.include?(query) }
-    results << { paragraph: paragraph, chp_number: number } if contents.include?(query)
-  end
-  results
-end
-
-def search_sentences(query)
-  results = []
-  return results unless query
-
-  @contents.each_with_index do |name, index|
-    number = index + 1
-    contents = File.read("data/chp#{number}.txt")
-    sentence = contents.split(/[!.?]/).select { |sentence| sentence.include?(query) }
-    results << { sentence: sentence, chp_number: number } if contents.include?(query)
-  end
-  results
-end
-
 get "/search" do
   @results = chapters_matching(params[:query])
   erb :search
