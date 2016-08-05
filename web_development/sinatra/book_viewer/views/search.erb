@@ -5,17 +5,25 @@
   <button type="submit">Search</button>
 </form>
 
-<% if @chapters.empty? %>
+<% if @results.empty? %>
   <p>Sorry, no matches were found.</p>
 <% else %>
   <h2 class="content-subhead">Results for '<%= params[:query]%>'</h2>
-    <% @sentences.each do |sentence| %>
-      <li><a href="chapters/<%= sentence[:chp_number].to_i %><%= find_anchor(params[:query], sentence[:chp_number]) %>"><%= clean(sentence[:sentence]) %></a></li>
-      <br>
-    <% end %>
 
-    <% @paragraphs.each do |paragraph| %>
-    <h3>Chapter : <%= paragraph[:chp_number] %></h3>
-      <p><%= clean(paragraph[:paragraph]) %></p>
+  <ul>
+    <% @results.each do |result| %>
+      <li>
+        <h4><%= result[:name] %></h4>
+        <ul>
+          <% result[:paragraphs].each do |index, text| %>
+            <li>
+              <a href="/chapters/<%= result[:number] %>#paragraph<%= index %>">
+                <%= highlight(text, params[:query]) %>
+              </a>
+            </li>
+          <% end %>
+        </ul>
+      </li>
     <% end %>
+  </ul>
 <% end %>

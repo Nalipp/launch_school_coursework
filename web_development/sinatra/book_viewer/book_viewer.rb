@@ -1,5 +1,3 @@
-require 'pry'
-
 require "sinatra"
 require "sinatra/reloader"
 require "tilt/erubis"
@@ -10,24 +8,29 @@ end
 
 helpers do
   def in_paragraphs(text)
-    text.split("\n\n").each_with_index.map do |pg, index|
-      "<p><a name='#{index}'>#{pg}</p>"
+    text.split("\n\n").each_with_index.map do |line, index|
+      "<p id=paragraph#{index}>#{line}</p>"
     end.join
   end
 
-  def clean(text)
-    text.to_s.gsub(/["\\\n\[\]]/, '')
+  def highlight(text, term)
+    text.gsub(term, %(<strong>#{term}</strong>))
   end
+end
 
-  def find_anchor(query, chapter_number)
-    paragraph_number = 0
-    contents = File.read("data/chp#{chapter_number}.txt")
-    contents.split("\n\n").each do |pg|
-      break if pg.include?(query)
-      paragraph_number += 1
+def chapters_matching(query)
+  results = []
+
+  return results unless query
+
+  each_chapter do |number, name, contents|
+    matches = {}
+    contents.split("\n\n").each_with_index do |paragraph, index|
+      matches[index] = paragraph if paragraph.include?(query)
     end
-    "##{paragraph_number}"
+    results << {number: number, name: name, paragraphs: matches} if matches.any?
   end
+  results
 end
 
 not_found do
@@ -94,9 +97,6 @@ def search_sentences(query)
 end
 
 get "/search" do
-  query = params[:query]
-  @chapters = search_chapters(query) # returns this format {:number=>5, :name=>"The Five Orange Pips\n"}
-  @paragraphs = search_paragraphs(query)
-  @sentences = search_sentences(query)
+  @results = chapters_matching(params[:query])
   erb :search
 end
