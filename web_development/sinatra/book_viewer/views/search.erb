@@ -10,12 +10,12 @@
 <% else %>
   <h2 class="content-subhead">Results for '<%= params[:query]%>'</h2>
     <% @sentences.each do |sentence| %>
-      <li><a href="<%= find_anchor(params[:query], sentence[:number]) %>"><%= clean(sentence[:sentence]) %></a></li>
+      <li><a href="chapters/<%= sentence[:chp_number].to_i %><%= find_anchor(params[:query], sentence[:chp_number]) %>"><%= clean(sentence[:sentence]) %></a></li>
       <br>
     <% end %>
 
     <% @paragraphs.each do |paragraph| %>
-    <h3>Chapter : <%= paragraph[:number] %></h3>
+    <h3>Chapter : <%= paragraph[:chp_number] %></h3>
       <p><%= clean(paragraph[:paragraph]) %></p>
     <% end %>
 <% end %>

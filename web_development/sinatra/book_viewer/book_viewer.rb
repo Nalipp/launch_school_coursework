@@ -10,8 +10,8 @@ end
 
 helpers do
   def in_paragraphs(text)
-    text.split("\n\n").map do |line|
-      "<p>#{line}</p>"
+    text.split("\n\n").each_with_index.map do |pg, index|
+      "<p><a name='#{index}'>#{pg}</p>"
     end.join
   end
 
@@ -20,6 +20,13 @@ helpers do
   end
 
   def find_anchor(query, chapter_number)
+    paragraph_number = 0
+    contents = File.read("data/chp#{chapter_number}.txt")
+    contents.split("\n\n").each do |pg|
+      break if pg.include?(query)
+      paragraph_number += 1
+    end
+    "##{paragraph_number}"
   end
 end
 
@@ -68,7 +75,7 @@ def search_paragraphs(query)
     number = index + 1
     contents = File.read("data/chp#{number}.txt")
     paragraph = contents.split("\n\n").select { |pg| pg.include?(query) }
-    results << { paragraph: paragraph, number: number } if contents.include?(query)
+    results << { paragraph: paragraph, chp_number: number } if contents.include?(query)
   end
   results
 end
@@ -81,7 +88,7 @@ def search_sentences(query)
     number = index + 1
     contents = File.read("data/chp#{number}.txt")
     sentence = contents.split(/[!.?]/).select { |sentence| sentence.include?(query) }
-    results << { sentence: sentence, number: number } if contents.include?(query)
+    results << { sentence: sentence, chp_number: number } if contents.include?(query)
   end
   results
 end
