@@ -1,0 +1,47 @@
+* {
+	margin: 0px;
+  font-family: monospace;
+}
+html, body {
+	height: 100%;
+}
+.wrapper {
+	min-height: 100%;
+	margin: 0 auto -155px;
+}
+.footer, .push {
+	height: 155px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 80px;
+  padding-left: 1em;
+}
+
+h3 {
+  font-size: 40px;
+  padding-left: 3em;
+  line-height: 1.5em;
+}
+
+ul {
+  font-size: 50px;
+  padding-left: 3em;
+  line-height: 1.5em;
+}
+
+p {
+  font-size: 20px;
+}
+
+.links {
+  line-height: 1.5em;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 30px;
+}
+
+a {
+  text-decoration: none;
+}

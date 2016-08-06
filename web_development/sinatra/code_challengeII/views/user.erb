@@ -1,0 +1,7 @@
+<header>
+  <h1>User : <%= @name.capitalize %></h1>
+</header>
+  <h3>Email : <%= @user[:email] %></h3>
+  <h3>Interests : <% @user[:interests].each_with_index do |interest, index| %>
+    <%= (index + 1) < @user[:interests].length ? interest + ", " : interest %>
+  <% end %></h3>

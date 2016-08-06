@@ -1,3 +1,5 @@
+@contents = File.readlines "data/toc.txt"
+
 def each_chapter(&block)
   @contents.each_with_index do |name, index|
     number = index + 1
@@ -31,3 +33,5 @@ def chapters_matching(query)
  end
  results
 end
+
+p chapters_matching('cocaine')
