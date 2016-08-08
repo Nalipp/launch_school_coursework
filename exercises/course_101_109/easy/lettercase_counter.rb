@@ -1,23 +1,9 @@
-def lowercase?(letter)
-  !letter.match(/[a-z]/).nil?
-end
-
-def uppercase?(letter)
-  !letter.match(/[A-Z]/).nil?
-end
-
-def neither?(letter)
-  !letter.match(/[^A-Z^a-z]/).nil?
-end
-
 def letter_case_count(string)
-  counts_hash = { lowercase: 0, uppercase: 0, neither: 0 }
-  string.chars.each do |letter|
-    counts_hash[:lowercase] += 1 if lowercase?(letter)
-    counts_hash[:uppercase] += 1 if uppercase?(letter)
-    counts_hash[:neither] += 1 if neither?(letter)
-  end
-  counts_hash
+  counts = {}
+  counts[:lowercase] = string.chars.count { |char| char =~ /[a-z]/ }
+  counts[:uppercase] = string.chars.count { |char| char =~ /[A-Z]/ }
+  counts[:neither] = string.chars.count { |char| char =~ /[^A-Z^a-z]/ }
+  counts
 end
 
 p letter_case_count('abCdef 123') == { lowercase: 5, uppercase: 1, neither: 4 }
