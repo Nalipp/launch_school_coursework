@@ -1,35 +1,43 @@
 class GuessingGame
-  attr_writer = :chances
-
-  def initialize
-    @winning_number = rand(99) + 1
-    @chances = 7
-  end
-
-  def check(num)
-    puts "Your guess is too high" if num > @winning_number
-    puts "Your guess is too low" if num < @winning_number
-    puts "You win!!" if num == @winning_number
-  end
+  RANGE = 1..100
+  MESSAGES = { high: "Your guess is too high",
+               low: "Your guess is too low",
+               win: "You win!!",
+               loose: "No more chances left. You loose" }
+  CHANCES = 7
 
   def play
-    puts "You have 7 chances remaining"
+    reset
+    chances_ramaining(CHANCES)
+    CHANCES.downto(0).each do |num|
+      puts results = check_guess(obtain_guess)
+      break if results == MESSAGES[:win] || results == MESSAGES[:loose]
+      chances_ramaining(num)
+    end
+  end
+
+  private
+
+  def reset
+    @winning_number = rand(RANGE)
+  end
+
+  def chances_ramaining(num)
+    puts num > 0 ? "Chances left : #{num}" : MESSAGES[:loose]
+  end
+
+  def check_guess(guess)
+    return MESSAGES[:win] if @winning_number == guess
+    return MESSAGES[:low] if @winning_number > guess
+    return MESSAGES[:high] if @winning_number < guess
+  end
+
+  def obtain_guess
     loop do
-      print 'Enter a number between 1 and 100: '
+      print "Guess a number between #{RANGE.min} and #{RANGE.max} : "
       guess = gets.chomp.to_i
-      loop do
-        break if (1..100).include?(guess)
-        puts "Invalid Guess. Enter a number between 1 and 100"
-        guess = gets.chomp.to_i
-      end
-      check(guess)
-      break if @winning_number == guess
-      @chances -= 1
-      if @chances == 0
-        puts "You are out of guesses, you loose!"
-        break
-      end
-      puts "you have #{@chances} chances remaining"
+      return guess if RANGE.cover?(guess)
+      puts "That is an invalid number!"
     end
   end
 end
