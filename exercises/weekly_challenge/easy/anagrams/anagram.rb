@@ -1,12 +1,10 @@
 class Anagram
-  attr_reader :str
-
   def initialize(str)
     @str = str.downcase
   end
 
   def match(arr)
-    arr.select { |word| anagram?(str, word.downcase) && str != word.downcase }
+    arr.select { |word| anagram?(@str, word.downcase) && @str != word.downcase }
   end
 
   private
