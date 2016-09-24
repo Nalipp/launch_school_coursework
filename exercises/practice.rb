@@ -1,44 +1,17 @@
-class Vehicle
-  attr_reader :make, :model
-
-  def initialize(make, model)
-    @make = make
-    @model = model
+class Something
+  def initialize
+    @data = 'Hello'
   end
 
-  def to_s
-    "#{make} #{model}"
+  def dupdata
+    @data + @data
   end
-end
 
-class Car < Vehicle
-  def wheels
-    4
+  def self.dupdata
+    'ByeBye'
   end
 end
 
-class Motorcycle < Vehicle
-  def wheels
-    2
-  end
-end
-
-class Truck < Vehicle
-  attr_reader :payload
-
-  def initialize(make, model, payload)
-    super(make, model)
-    @payload = payload
-  end
-
-  def wheels
-    6
-  end
-end
-
-car = Car.new('honda', 'civic')
-puts car
-motorcycle = Motorcycle.new('harley', 'hard tail')
-puts motorcycle
-truck = Truck.new('chevy', 's-10', 20)
-puts truck
+thing = Something.new
+puts Something.dupdata
+puts thing.dupdata
