@@ -1,24 +1,41 @@
+require "pry"
+require "pg"
+
 class DatabasePersistence
-  def initialize(session)
-    # @session = session
-    # @session[:lists] ||= []
+  def initialize
+    @db = PG.connect(dbname: "todos")
+  end
+
+  def query(statement, *params)
+    puts "#{statement}: #{params}"
+    @db.exec_params(statement, params)
   end
 
   def find_list(id)
-    # @session[:lists].find { |list| list[:id] == id }
+    sql = "SELECT * FROM lists WHERE id = $1"
+    result = query(sql, id)
+
+    tuple = result.first
+    { id: tuple["id"], name: tuple["name"], todos: [] }
   end
 
   def all_lists
-    # @session[:lists]
+    sql = "SELECT * FROM lists"
+    result = query(sql)
+
+    result.map do |tuple|
+      { id: tuple["id"], name: tuple["name"], todos: [] }
+    end
   end
 
   def create_new_list(list_name)
-    # id = next_element_id(@session[:lists])
-    # @session[:lists] << { id: id, name: list_name, todos: [] }
+    sql = "INSERT INTO lists (name) VALUES ($1)"
+    query(sql, list_name)
   end
 
   def delete_list(id)
-    # @session[:lists].reject! { |list| list[:id] == id }
+    sql = "DELETE from lists WHERE id = ($1)"
+    query(sql, id)
   end
 
   def update_list_name(id, new_name)
