@@ -141,7 +141,6 @@ end
 # Delete a todo list
 post "/lists/:id/destroy" do
   id = params[:id].to_i
-
   @storage.delete_list(id)
 
   session[:success] = "The list has been deleted."
