@@ -13,17 +13,7 @@ class SequelPersistence
   end
 
   def find_list(id)
-    sql = <<~SQL
-      SELECT lists.*, COUNT(NULLIF(todos.completed, true)) AS todos_remaining_count,
-        COUNT(todos.id) AS todos_count FROM lists
-        INNER JOIN todos ON lists.id = todos.list_id
-        WHERE lists.id = $1
-        GROUP BY lists.id
-        ORDER BY lists.name;
-      SQL
-    result = query(sql, id)
-
-    tuple_to_list_hash(result.first)
+    all_lists.first(lists__id: id)
   end
 
   def all_lists
@@ -73,14 +63,7 @@ class SequelPersistence
   end
 
   def find_todos_for_list(list_id)
-    sql = "SELECT * FROM todos WHERE list_id = $1"
-    todos_result = query(sql, list_id)
-
-    todos_result.map do |todo_tuple|
-      { id: todo_tuple["id"].to_i,
-        name: todo_tuple["name"],
-        completed: todo_tuple["completed"] == "t"}
-    end
+    @db[:todos].where(list_id: list_id)
   end
 
   private
