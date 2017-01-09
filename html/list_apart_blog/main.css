@@ -1,0 +1,43 @@
+body {
+	font-family: Georgia, serif;
+	font-size: 18px;
+	line-height: 30px;
+	margin: 0 20% auto;
+}
+a {
+	text-decoration: none;
+	color: #2455C3;
+}
+header {
+	text-align: center;
+}
+header p {
+	font-size: 14px;
+	font-style: italic;
+}
+h1, h2 {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 48px;
+}
+h2 {
+	font-size: 24px;
+	color: #BA3925;
+}
+blockquote, figcaption {
+	font-style: italic;
+}
+figcaption {
+	text-align: center;
+	font: italic 14px/24px Georgia, serif;
+}
+blockquote {
+	border-left: 1px dotted grey;
+	padding-left: 12px;
+	margin: 30px 0;
+}
+#author {
+	font-family: Helvetica, Arial, sans-serif;
+	font-style: normal;
+	font-eight: bold;
+	text-transform: uppercase;
+}
