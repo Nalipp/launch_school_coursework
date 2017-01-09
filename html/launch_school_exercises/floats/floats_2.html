@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>floats 2</title>
+    <style>
+      body {
+        font-family: monospace;
+      }
+      #positioned {
+        background-color: #FF009E;
+        color: white;
+        padding: 40px;
+        position: absolute;
+        box-sizing: border-box;
+        margin-left: -200px;
+        width: 400px;
+        top: 0;
+        left: 50%;
+        z-index: 2
+      }
+      #fixed {
+        background: rgba(0, 0, 0, .6);
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 1;
+      }
+      #positioned span {
+        width: 20px;
+        height: 20px;
+        background: #fcfc99;
+        position: absolute;
+        top: -10px;
+        left: -10px;
+      }
+    </style>
+  </head>
+  <body id="fixed">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris in sem in quam ultricies suscipit. Nulla non nibh quis risus dapibus sagittis. Nunc accumsan metus lorem, scelerisque eleifend sapien tristique et. Curabitur tempus ipsum eros. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque tincidunt mauris risus, nec maximus nisi aliquam blandit. Nunc enim diam, luctus sed blandit vitae, pellentesque nec justo. Sed in turpis rhoncus, sodales risus at, egestas purus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus ut ex porta, mattis est quis, sodales purus. Phasellus tempor sapien at dignissim cursus. Fusce finibus metus eu maximus interdum. Donec vestibulum metus eu lobortis fermentum. Donec laoreet euismod elementum. Quisque convallis consectetur pharetra.</p>
+    <p>Vivamus felis leo, faucibus eu mauris nec, fringilla consequat ligula. Proin luctus mollis auctor. Maecenas tincidunt orci non neque feugiat, vitae pretium sapien placerat. Vivamus non dolor sed risus rhoncus egestas eget non nunc. Vestibulum volutpat porta tincidunt. Donec at tincidunt nibh, ac feugiat nulla. Aenean eget tortor quis est pellentesque vulputate. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent ut lorem est. Sed posuere aliquam commodo. Pellentesque viverra justo massa, sit amet tincidunt nisi gravida at. Quisque nisl neque, interdum ut dignissim sit amet, volutpat vitae eros. Sed sit amet nisl ultrices, malesuada arcu sit amet, sollicitudin diam. Donec in urna felis.</p>
+    <p>Proin imperdiet pellentesque dolor mattis convallis. Maecenas id libero sit amet lorem tristique semper. Sed et lacus rhoncus, sodales dolor sed, porttitor dui. Ut id bibendum massa, vitae fringilla nulla. Integer eget ex augue. Quisque porttitor eleifend urna, vitae rhoncus felis accumsan sed. Sed sagittis quis arcu vitae varius. Suspendisse sed elit blandit, interdum turpis a, porta mauris. Praesent eget sodales tellus.</p>
+    <p>Aliquam porttitor lobortis nisl, in consequat ante accumsan et. Vivamus a ipsum at elit rutrum commodo. Quisque tempus sit amet odio placerat suscipit. Suspendisse finibus felis nec ipsum laoreet, et blandit metus consequat. In at vulputate felis. Proin tincidunt scelerisque fringilla. Praesent ut purus a risus iaculis sollicitudin sed pulvinar mauris. Nullam eget blandit sem. Fusce bibendum massa dui, nec sollicitudin elit iaculis ac. Donec a erat sapien.</p>
+    <p id="positioned">
+      i'm positioned
+      <span></span>
+    </p>
+  </body>
+</html>

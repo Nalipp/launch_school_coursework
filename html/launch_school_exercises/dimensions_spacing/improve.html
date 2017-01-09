@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Improving HTML and CSS</title>
+  <style>
+    html {
+      font: normal 14px Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      color: #222222;
+      background: #2E0927;
+    }
+
+    body > header {
+      padding: 1rem 2.5rem;
+      background: #FF2D00;
+    }
+
+    body > header img {
+      width: 80px;
+    }
+
+    body > header nav {
+      float: right;
+    }
+
+    body > header nav a {
+      margin-left: .8rem;
+    }
+
+    body > header ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    body > header li {
+      display: inline;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    main {
+      padding: 2rem 2.5rem;
+      background: #ffffff;
+    }
+
+    p {
+      text-indent: 1rem;
+    }
+
+    .circle {
+      list-style: circle;
+    }
+
+    dl {
+      padding-bottom: 1rem;
+    }
+
+    dt, dd {
+      padding: 0 0 .5rem 0;
+      margin: 0;
+      text-indent: 0;
+    }
+
+    dt {
+      font-weight: bold;
+    }
+
+    .button {
+      text-decoration: none;
+      color: #FF8C00;
+      display: inline-block;
+      padding: .8rem 1.2rem;
+      background: #04756F;
+      border: none;
+      font-size: 1rem;
+      font-family: inherit;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVQAAAElCAMAAACMMurjAAAC/VBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+G1NxwAAAA/nRSTlMAAQIDBAUGBwgJCgsMDQ4PEBESExQVFhcYGRobHB0eHyAhIiMkJSYnKCkqKywtLi8wMTIzNDU2Nzg5Ojs8PT4/QEFCQ0RFRkdISUpLTE1OT1BR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" alt="home image"/>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Photos</a></li>
+        <li><a href="#">Articles</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h1>Welcome</h1>
+    <p>Curabitur eget placerat est. Sed erat erat, consectetur id turpis in, laoreet dapibus tortor. Cras et lacus id odio posuere sodales ac id felis. Nullam elementum urna at odio malesuada blandit. Nam mauris turpis, fermentum vel mollis eu, blandit id lorem. Aliquam molestie, eros quis molestie sollicitudin</p>
+    <ul class="circle">
+      <li>Red</li>
+      <li>Yellow</li>
+      <li>Blue</li>
+    </ul>
+    <h2>Technologies Used</h2>
+    <dl>
+      <dt class="tech">HTML</dt>
+      <dd>Hypertext Markup Language, a standardized system for tagging text files to achieve font, color, graphic, and hyperlink effects on World Wide Web pages.</dd>
+      <dt class="tech">CSS</dt>
+      <dd class="description">Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language.</dd>
+    </dl>
+    <a class="button" href="#">Next Page</a>
+    <input type="submit" class="button" value="Save" />
+  </main>
+</body>
+</html>
