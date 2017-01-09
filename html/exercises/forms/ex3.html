@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Ex3</title>
+	</head>
+	<body>
+		<form action="post" method="">
+			<fieldset>
+				<dl>
+					<dt><label for="movie">Movie</label></dt>	
+					<dd>
+					<select name="movie" id="movie">
+						<option value="value1" selected>Looper</option> 
+						<option value="value2">Frozen</option>
+						<option value="value3">Tommy Boy</option>
+					</select>
+					</dd>	
+					<dt><label for="rating">rating</label></dt>
+					<dd>
+					<input type="range" id="rating" min="1" max="5" step="1">
+					</dd>
+				</dl>	
+				<div>
+					<label><input type="checkbox" id="favorites" checked>add to favorites</label>
+				</div>	
+				<input type="submit" value="movie_rating">
+			</fieldset>
+		</form>
+	</body>
+</html>
+

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Ex1</title>
+	</head>
+	<body>
+		<fieldset class="register-group">
+			<form action="/message" method="post">
+				<dl>
+					<dt><label for="username">your name</label></dt>
+						<dd><input type="text" name="username" required></dd>
+					<dt><label for="email">email</label></dt>
+						<dd><input type="text" name="email" required></dd>
+					<dt><label for="phone_number">phone number</label></dt>
+						<dd><input type="text" name="phone_number" required></dd>
+					<dt><label for="message">message</label></dt>
+						<dd><textarea name="message" rows="4" cols="50" required></textarea></dd>
+				</dl>
+			<input type="reset" value="clear"> 
+			<input type="submit" value="send_message">
+			</form>	
+		</fieldset>
+	</body>
+</html>
