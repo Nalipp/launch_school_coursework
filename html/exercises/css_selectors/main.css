@@ -1,0 +1,58 @@
+form {
+	width: 450px;
+}
+label {
+	display: block;
+}
+header ul {
+	display: none;
+}
+header > ul {
+	display: block;
+}
+article p {
+	font-family: sans-serif;
+	font-size: 18px;
+}
+main li ~ li{
+	border-top: 1px solid #0066cc;
+}
+main ul li ~ li {
+	border-bottom-style: dotted;
+}
+.subheading {
+	background: #e0e0e0;
+}
+#intro {
+	font-size: 20px;
+	text-decoration: underline;
+}
+h2 + p {
+	padding-top: 20px;
+}
+header li:hover ul {
+	display: block;
+}
+input[type="text"]:focus {
+	background: #fff9b5;
+}
+input[type="checkbox"]:checked + span {
+	font-weight: bold;
+}
+input[type="text"] {
+	border: 1px solid #999999;
+}
+input[required] {
+	border: 1px solid #004f75;
+}
+main li:first-child {
+	text-indent: 15px;
+}
+tr:nth-child(odd) td {
+	background: #d4f7fb;
+}
+td:nth-child(3) {
+	text-align: center;
+}
+
+
