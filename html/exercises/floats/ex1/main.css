@@ -1,0 +1,28 @@
+section {
+	max-width: 1200px;
+	margin: 0 auto;
+	color: white;
+	background: Chartreuse;
+}
+header {
+	background: deepskyblue;
+	float: left;
+	width: 15%;
+}
+article {
+	background: crimson;
+	width: 70%;
+	padding-right: 30px;
+	box-sizing: border-box;
+	float: left;
+}
+aside{
+	background: midnightblue;
+	float: right;
+	width: 15%;
+}
+footer {
+	margin: 0;
+	background: deeppink;
+	clear: both;
+}
