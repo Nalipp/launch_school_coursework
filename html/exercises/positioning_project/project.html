@@ -107,6 +107,46 @@
 				</code>
 				<p>Basically, you just put the ::after pseudo-element on the containing parent element of the floated contents.</p>
 			</section>
+			<section>
+				<h1>Positioning</h1>
+				<p>Every now and then we want to position things the way we want it to be and move it around the page, and floats simply cannot do this as it can only take an element to position left or right of the page. This is where positioning comes in. There are four types of positiong:</p>
+				<ul>
+					<li>Static</li>
+					<li>Fixed</li>
+					<li>Relative</li>
+					<li>Absolute</li>
+				</ul>
+
+				<h1>Static Position</h1>
+				<p>The element renders normally on the page - this is the default position of elements on the page.</p>
+				<h1>Fixed Position</h1>
+				<p>This will allow you to put an element in the same place even when the page is scrolled. Top, Right, Bottom and Left properties are used to position this property.</p>
+				<p>Fixed positioned elements are taken out of the flow and does not leave a gap in the location of the page where you originally put it.</p>
+				<p>Notice the blue box on the bottom left side of the page. It is a fixed position element.</p>
+				<div class="fixed-box">
+					I'm positioned fixed
+				</div>
+
+				<h1>Position Relative</h1>
+				<p>Positioned relative to its normal position. Setting the offset values will cause the element to move away from its normal position according to the values you've set. However, its position in the normal flow of the document will be preserved and following texts will not wrap around it.</p>
+				<p>When we position an element with offset values it moves on top of the next text/elements rather than pushing it down as to what padding and margin element would do.</p>
+				<div class="relative-box">
+					I'm a relatively positioned box!
+				</div>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non cumque repellat sapiente vitae nihil debitis accusamus, odit, tempore id reiciendis consequatur necessitatibus veritatis, distinctio vel, cum repellendus numquam blanditiis perferendis?</p>
+
+				<div class="pos-absolute-wrapper">
+					<h1>Position Absolute</h1>
+					<p>When the element is positioned absolute it is taken out of the normal flow and the original space of that element in the document will not be preserved.</p>
+					<p>Absolutely positioned elements are moved in relation to their closest relatively positioned parent element. Should a relatively positioned parent element not exist, the absolutely positioned element will be positioned in relation to the &#60;body&#62; element.</p>
+					<p>Let's get some examples:</p>
+					<div class="pos-absolute">
+						Absolutely Positioned Box
+					</div>
+					<p>I will set the position of the section with the class of "pos-absolute" to position: relative so that the absolutely positioned element will be basing its offset values on the whole section element.</p>
+					<p>Notice the green box beside the Position Absolute title, it is an absolutely positioned element.</p>
+				</div>
+			</section>
 		</div>
 	</body>
 </html>

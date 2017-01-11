@@ -164,3 +164,44 @@ code {
 	margin: 1em 0 1em -300px;
 	font-size: 16px;
 }
+ul li {
+	font-style: italic;
+	margin-left: 20px;
+	line-height: 25px;
+}
+.fixed-box {
+  position: fixed;	
+	background-color: dodgerblue;
+	color: white;
+  bottom: 60px;
+	left: 20px;
+	padding: 26px;
+	border-radius: 10px;
+	width: 240px;
+	text-align: center;
+}
+.relative-box {
+  position: relative;	
+	background-color: orangered;
+	color: white;
+  top: 60px;
+	left: -80px;
+	padding: 26px;
+	border-radius: 10px;
+	width: 340px;
+	text-align: center;
+}
+.pos-absolute-wrapper {
+	position: relative;
+}
+.pos-absolute {
+  position: absolute;	
+	background-color: limegreen;
+	color: white;
+	bottom: 380px;
+	left: 220px;
+	padding: 26px;
+	border-radius: 10px;
+	width: 340px;
+	text-align: center;
+}
