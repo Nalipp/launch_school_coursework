@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Box model examples</title>
+		<link rel="stylesheet" href="main.css"> 
+	</head>
+	<body>
+		<div id="lesson">
+			<section>
+				<h1>Inline Elements</h1>
+				<p>Inline elements occupies only the space of the content. It does not take width and height values.</p>
+				<h3>Example</h3>
+				<p>Anchor tags are normally inline elements, you see they only take up the width of their content and not the whole width of the page then the next anchor tags follow right after it.</p>
+				<div class="border">
+					<a href="">Home</a> 
+					<a href="">Portfolio</a> 
+					<a href="">Contact</a>	
+				</div>
+				<h3>What happens if we set a margin property on an inline level element?</h3>
+				<p>Inline elements will only take left and right margin values.</p>
+				<div class="border inline-margin">
+					<a href="">Home</a> 
+					<a href="">Portfolio</a> 
+					<a href="">Contact</a>	
+				</div>
+				<p>In the example I put a margin of 30px on all sides, as you can see if you check the anchor tag in the developer tools only the left and right side of the contents are affected by the margin.</p>
+				<h3>What about padding?</h3>
+				<div class="border inline-padding">
+					<a href="">Home</a> 
+					<a href="">Portfolio</a> 
+					<a href="">Contact</a>	
+				</div>
+				<p>Inline elements accept padding values on all sides.</p>
+				<h3>Floating Inline Elements</h3>
+				<div class="border inline-float cf">
+					<a href="">Home</a> 
+					<a href="">Portfolio</a> 
+					<a href="">Contact</a>	
+				</div>
+				<div>
+					<p>Floating inline elements will change its display value to a block level element and subject to all block level characteristics. Which means it can take margin and padding values, height and width values as well.</p>
+				</div>
+			</section>
+			<section class="block">
+				<h1>Block Elements</h1>
+				<p>Block level elements take up the entire width of the page and always start in a new line.It can have margin/s and padding/s. If no width is set it will expand naturally to fill its parent container. If no height is set, it will expand to fit its content.</p>
+				<h3>Example: (Div elements are naturally block level elements)</h3>
+				<div class="wrapper">
+					<div class="box1">This is a div with no width and height set.</div>
+					<div class="box2">This a div with no width but with a height of 60px, with a padding and margin of 20px around it.</div>
+					<div class="box3">This a div with a width of 90px and no height set.</div>
+				</div>
+				<p>In the first example, the div fills the entire width, and uses just enough height to fill its content. In the second box, we didn't set a width, but it still filled the entire width (counting the padding and margin); it also uses 60px of height plus the margin and padding. For the third box, we set the width to 90px, and as expected, it took just enough height to fill its content. The text was squished because of the reduced width, so the browser expanded the height to accommodate the content.</p>
+				<h3>Floating Block Elements</h3>
+				<h3>Floating block elements with no width and height set.</h3>
+				<div class="wrapper cf">
+					<div class="fl-1">Box - 1 - Floated Left</div>
+					<div class="fl-2">Box - 2 - Floated Right</div>
+				</div>
+				<p>It floated our elements to the left and right on the same block. It shrunk to the widest element within each div, in our case the texts inside, since we didn't set a specific width for each</p>
+				<h3>Floating block elements with width and height set.</h3>
+				<div class="wrapper cf">
+					<div class="fl-3">Box - 1 - Floated Left</div>
+					<div class="fl-4">Box - 2 - Floated Right</div>
+				</div>
+				<h3>Can we change an inline element into a block element?</h3>
+				<p>Let's use the anchor tag as an example.</p>
+				<div class="wrapper">
+					<a href="#">Home</a>
+					<a href="#">About</a>
+					<a href="#">Contact</a>
+				</div>
+				<p>Yes, we can change display values from a block element to inline element and vice versa.Display values can be overwritten by another display value.</p>
+			</section>	
+			<section>
+				<p>Inline-block elements are inline elements that can take block elements properties, such as width and height. It acts similarly to a float minus the clear property.</p>
+				<h3>Example: Let's use inline-block to create a navigation.</h3>
+				<div class="wrapper">
+					<nav>
+						<a href="#">Home</a>
+						<a href="#">Portfolio</a>
+						<a href="#">About</a>
+						<a href="#">Contact</a>
+					</nav>
+				</div>
+				<p>We achieved the same results as to when we float the anchor elements to give them the block elements' properties. It's you get two elements in just one, you get to have the properties of inline elements and at the same time get the properties of block elements.</p>
+			</section>
+		</div>
+	</body>
+</html>
