@@ -124,4 +124,43 @@ a {
 	width: 180px;
 }
 
-
+#main-title {
+	border-top: 2px dashed dimgrey;
+	text-align: center;
+	padding-top: 30px;
+  padding-bottom: 10px;	
+}
+.fl-5 {
+	float: left;
+	width: 50%;
+	height: 70px;
+	line-height: 70px;
+	text-align: center;
+	background: orangered;
+	color: white;
+}
+.fl-6 {
+	float: right;
+	width: 50%;
+	height: 70px;
+	line-height: 70px;
+	text-align: center;
+	background: deepskyblue;
+	color: white;
+}
+.fl-7 {
+	width: 100%;
+	height: 70px;
+	line-height: 70px;
+	text-align: center;
+	background: limegreen;
+	color: white;
+	clear: both;
+}
+code {
+	font-family: monospace;
+	display: block;
+	white-space: pre;
+	margin: 1em 0 1em -300px;
+	font-size: 16px;
+}

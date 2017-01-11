@@ -86,6 +86,27 @@
 				</div>
 				<p>We achieved the same results as to when we float the anchor elements to give them the block elements' properties. It's you get two elements in just one, you get to have the properties of inline elements and at the same time get the properties of block elements.</p>
 			</section>
+			<section>
+				<h1 id="main-title">Floats and Positioning Elements</h1>
+				<h1>Floats</h1>
+				<p>A floated element is taken out of the normal flow then shifted left or right.When you float a content it becomes a block-level element.</p>
+				<h3>Example</h3>
+				<div class="wrapper cf">
+					<div class="fl-5">Box 1</div>
+					<div class="fl-6">Box 2</div>
+					<div class="fl-7">Box 3</div>
+				</div>
+				<p>Elements following a floated element will wrap around the floated element, we do not want this to happen, so I applied the 'clear: both' property to the third div, there are 2 other properties for clear, that's the left and the right. I chose to clear both, just to be sure.</p>
+				<p>There are other methods to clear floats, one of these methods is the clearfix method:</p>
+				<code>
+					elementName::after {
+					    content: " ";
+					    display:block;
+					    clear: both;
+					}
+				</code>
+				<p>Basically, you just put the ::after pseudo-element on the containing parent element of the floated contents.</p>
+			</section>
 		</div>
 	</body>
 </html>
