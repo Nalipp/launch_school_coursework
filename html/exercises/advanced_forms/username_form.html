@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Hello World</title>
+		<link rel="stylesheet" href="main.css"> 
+	</head>
+	<body>
+		<form action="post" method="/">
+			<fieldset>
+				<dl>
+					<dt><label for="first_name">first name</label></dt>
+					<dd><input type="text" name="first_name" id="first_name"></dd>
+					<dt><label for="last_name">last name</label></dt>
+					<dd><input type="text" name="last_name" id="first_name"></dd>
+					<dt><label for="email">email</label></dt>
+					<dd><input type="email" name="email" autocomplete autocorrect autocapitalize="none"></dd>	
+					<dt><label for="phone_type">phone type</label></dt>
+					<dd>
+						<select name="phone_type" id="phone_type">
+							<option value="home" selected>home</option>
+							<option value="business">business</option>
+							<option value="mobile">mobile</option>
+						</select>
+					</dd>
+					<dt><label for="phone_number">phone_number</label></dt>
+					<dd><input type="text" name="phone_number" id="phone_number"></dd>
+				</dl>
+				<input type="submit" value="send">
+			</fieldset>
+		</form>
+	</body>
+</html>
