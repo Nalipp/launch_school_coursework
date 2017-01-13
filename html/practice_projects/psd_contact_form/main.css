@@ -1,0 +1,78 @@
+@import url("resets.css");
+
+body {
+	font: normal 18px Helvetica, Arial, sans-serif;
+	margin: 10px;
+}
+h1 {
+  font-size: 40px;
+	padding: 10px;
+	margin-bottom: 20px;
+}
+h2 {
+	font-size: 30px;
+	color: #282827;
+	margin-bottom: 30px;
+}
+.terms {
+	color: #676767;
+	font-size: 12px;
+	display: inline-block;
+	width: 100%;
+	padding-left: 40px;
+	position: relative;
+}
+.terms input {
+	position: absolute;
+	top: 5px;
+	left: 20px;
+}
+label {
+	font-size: 20px;
+}
+fieldset {
+}
+section {
+	margin: 4px 10px 4px 10px;
+	background: #ececec;
+	border-left: 4px solid #cdcccb;
+	padding: 24px 38px;
+}
+dd {
+	margin: 10px;
+}
+.partial {
+	display: inline-block;
+	box-sizing: border-box;
+}
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+	padding: 10px;
+	box-sizing: border-box;
+	margin: 5px 10px 25px 5px;
+	font-size: 18px;
+	width: 100%;
+	border: 1px solid #2e67b2;
+	border-radius: 4px;
+	resize: vertical;
+}
+.third {
+	width: 33.33%;
+}
+.half {
+	width: 50%;
+}
+.button {
+	margin: 30px 0;
+	color: #fff;
+	background: #2e67b2;
+	border: none;
+	padding: 20px;
+	font-size: 20px;
+	border-radius: 4px;
+}
+.button:hover {
+	background: #6095cb;
+}

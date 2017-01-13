@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>contact form</title>
+		<link rel="stylesheet" href="main.css"> 
+	</head>
+	<body>
+		<header>
+			<h1>Create Your Profile</h1>
+		</header>
+		<fieldset>
+			<form action="" method="post">
+				<section>
+					<h2>Personal Info</h2>
+					<dl>
+						<dt><label for="first_name">Your Name</label></dt>
+						<div class="partial half">
+							<dd><input type="text" name="first_name" id="first_name" placeholder="first"></dd>
+						</div><!--
+						--><div class="partial half">
+							<dd><input type="text" name="last_name" id="last_name" placeholder="last"></dd>
+						</div>
+						<dt><label for="email">Email</label></dt>
+						<dd><input type="email" name="email" id="email"></dd>
+							<div class="partial half">
+					</dl>
+				</section>
+				<section>
+					<h2>Social Media accounts</h2>
+					<dl>
+						<div class="partial third">
+							<dt><label for="facebook">facebook</label></dt>
+							<dd><input type="text" name="facebook" id="facebook"></dd>
+						</div><!--
+						--><div class="partial third">
+							<dt><label for="twitter">twitter</label></dt>
+							<dd><input type="text" name="twitter" id="twitter"</dd>
+						</div><!--
+						--><div class="partial third">
+							<dt><label for="linkedin">linkedin</label></dt>
+							<dd><input type="text" name="linkedin" id="linkedin"></dd>
+						</div>
+					</dl>
+				</section>
+				<section>
+					<h2>Account Info</h2>
+					<dl>
+						<dt><label for="profile_name">Profile Name</label></dt>
+						<dd class="full"><input type="text" name="profile_name" id="profile_name"></dd>
+						<div class="partial half">
+							<dt><label for="password">Password</label></dt>
+							<dd><input type="password" name="password" id="password"><dd>
+						</div><!--
+						--><div class="partial half">
+							<dt><label for="confirm_password">Confirm Password</label></dt>
+							<dd><input type="password" name="confirm_password" id="confirm_password"><dd>
+						</div>
+					</dl>
+				</section>
+				<section>
+					<h2>Bio</h2>
+					<dl>
+						<dt><label for="bio" hidden>Bio</label></dt>
+						<dd><textarea rows="10" cols="30"></textarea></dd>
+					</dl>
+				</section>
+				<section>
+					<div class="terms">
+						<input type="checkbox" name="terms" id="terms">
+						<label for="terms">I agree to treat others with respect, and will not say anything at all if I have nothing nice to say.</label>
+					</div>
+					<input type="submit" class="button" value="Create Account">
+				</section>
+			</form>
+		</fieldset>
+	</body>
+</html>
+
