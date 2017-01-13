@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Hello World</title>
+		<link rel="stylesheet" href="main.css"> 
+	</head>
+	<body>
+		<form action="" method="get">
+			<fieldset>
+				<dl>
+					<dt><label for="categories">categories</label></dt>
+					<dd>
+						<select name="categories" id="categories">
+							<option value="core">core</option>
+							<option value="plugins_libraries">Plugins and Libraries</option>
+							<option value="conventions">Conventions</option>
+							<option value="reviews">Reviews</option>
+							<option value="opinion">	Opinion</option>
+							<option value="People">	People</option>
+						</select>
+					</dd>
+					<dt><label for="tags">tags</label></dt>
+					<dd>
+						<select name="tags" id="tags" multiple>
+							<option value="html">HTML</option>
+							<option value="css">CSS</option> 
+							<option value="javascript">Javascript</option> 
+							<option value="ruby">Ruby</option>
+							<option value="rails">Rails</option>
+							<option value="python">Python</option>
+							<option value="django">Django</option>
+						</select>
+					</dd>
+				</dl>
+				<input type="submit" value="Find">
+				<input type="reset" value="Reset">
+			</fieldset>
+		</form>
+	</body>
+</html>
