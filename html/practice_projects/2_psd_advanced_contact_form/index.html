@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>PST advanced form</title>
+		<link rel="stylesheet" href="main.css"> 
+	</head>
+	<body>
+		<header>
+			<h1>Create Your Profile</h1>
+		</header>
+		<section>
+			<fieldset>
+				<h2>Personal info</h2>
+				<dl>
+					<div class="partial col-half">
+						<dt><label for="first_name">Your Name</label></dt>
+						<dd><input type="text" name="first_name" id="first_name" placeholder="First"></dd>
+					</div><!--
+					--><div class="partial col-half">
+						<dt><label for="last_name"></label></dt>
+						<dd><input type="text" name="last_name" id="name" placeholder="Last"></dd>
+					</div>
+					<dt><label for="email">Email</label></dt>
+					<dd><input type="email" name="email" id="email"</dd>
+				</dl>
+		</section>
+		<section>
+			<h2>Social Media Accounts</h2>
+			<dl>
+				<div class="partial col-third">
+					<dt><label for="facebook">Facebook<dt>
+						<dd><input type="url" name="facebook" id="facebook"<dd>
+				</div><!--
+				--><div class="partial col-third">
+					<dt><label for="twitter">Twitter<dt>
+						<dd><input type="url" name="twitter" id="twitter"<dd>
+				</div><!--
+				--><div class="partial col-third">
+					<dt><label for="linkedin">Linkedin<dt>
+						<dd><input type="url" name="linkedin" id="linkedin"<dd>
+				</div>
+			</dl>
+		</section>
+		<section>
+			<h2>Account Info</h2>
+			<dl>
+				<dt><label for="profile_name">Profile Name</label></dt>
+				<dd><input type="email" name="email" id="email"</dd>
+			</dl>
+			<dl>
+				<div class="partial col-half">
+					<dt><label for="password">Password</label></dt>
+					<dd><input type="text" name="first_name" id="password"></dd>
+				</div><!--
+				--><div class="partial col-half">
+					<dt><label for="password">Password</label></dt>
+					<dd><input type="text" name="first_name" id="password"></dd>
+				</div>
+			</dl>
+		</section>
+		<section>
+			<h2>Bio</h2>
+			<textarea name="bio" rows="6" cols="61"></textarea>
+		</section>
+		<section>
+			<div class="terms">
+				<input type="checkbox" name="terms" id="terms"> 
+				<label for="terms"><p>I agree to treat other users with respect, and will not say anything at all if I have nothing nice to say.</p></label>
+			</div>
+			<input type="submit" value="Create Account">
+		</section>
+			</fieldset>
+	</body>
+</html>
