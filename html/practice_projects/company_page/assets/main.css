@@ -5,10 +5,19 @@ body {
 	font: normal 20px 'Nunito', sans-serif;
 }
 header {
-	background: url('images/bg_body.gif'); 
+	background: #2f2840 url('images/bg_body.gif') 50% 0 repeat; 
 	width: 100%;
 	text-align: center;
 	padding-bottom: 54px;
+}
+h2::before,
+h2::after {
+	content: '\2022';
+	padding: 0 20px;
+	font-size: 28px;
+}
+section h2::after {
+	content: &bull;;
 }
 header img {
 	padding-top: 136px;
@@ -25,8 +34,16 @@ header nav a.active {
 	font-weight: bold;
 }
 main {
-	margin: 0 10%;
 	text-align: center;
+}
+.index-col {
+	margin: 0 20%;
+}
+.projects-col {
+	padding: 0 10%;
+}
+.projects-col p {
+	padding: 0 10%;
 }
 section {
 	margin: 80px 0 32px 0;
@@ -57,7 +74,6 @@ h3 {
 p {
 	color: #45494d;
 	line-height: 30px;
-	padding: 0 10%;
 }
 footer {
 	padding-top: 88px;
