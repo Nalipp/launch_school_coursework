@@ -1,0 +1,83 @@
+
+@import url("assets/reset.css");
+
+body { 
+	font: normal 20px 'Nunito', sans-serif;
+}
+header {
+	background: url('images/bg_body.gif'); 
+	width: 100%;
+	text-align: center;
+	padding-bottom: 54px;
+}
+header img {
+	padding-top: 136px;
+	padding-bottom: 126px;
+}
+header nav a {
+  color: #cacaca;
+	padding: 0 45px;
+	font-size: 26px;
+	text-transform: uppercase;
+}
+main {
+	margin: 0 20%;
+	text-align: center;
+}
+section {
+	margin: 80px 0 32px 0;
+}
+#bullet {
+	margin: 0 28px;
+	font-size: 30px;
+}
+a {
+	text-decoration: none;
+}
+h2 {
+	color: #45494d;
+	font-size: 36px;
+	line-height: 54px;
+}
+h2:selected {
+	color: #6db9ff;
+}
+h3 {
+	font-size: 24px;
+	line-height: 36px;
+	color: #3e59b2;
+}
+p {
+	color: #45494d;
+	line-height: 30px;
+}
+footer {
+	padding-top: 88px;
+	text-align: center;
+	background-color: #e7e7e7;
+}
+footer li {
+	display: inline-block;
+}
+footer p {
+	color: #bababa;
+	margin: 0;
+}
+footer li a {
+/* 	background: red; */
+/* 	display: block; */
+/* 	width: 46px; */
+/* 	height: 46px; */
+/* 	text-indent: -8685px; */
+/* 	overflow: hidden; */
+	background: transparent url(images/icons_social-media.png) 0 0 no-repeat;
+}
+footer li a.facebook {
+	background-position: 0 -34px;
+}
+footer li a.email {
+	background-position: 0 -68px;
+}
+footer li a.instagram {
+	background-position: 0 -102px;
+}
