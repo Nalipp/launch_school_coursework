@@ -64,12 +64,12 @@ footer p {
 	margin: 0;
 }
 footer li a {
-/* 	background: red; */
-/* 	display: block; */
-/* 	width: 46px; */
-/* 	height: 46px; */
-/* 	text-indent: -8685px; */
-/* 	overflow: hidden; */
+	background: red;
+	display: block;
+	width: 46px;
+	height: 46px;
+	text-indent: -8685px;
+	overflow: hidden;
 	background: transparent url(images/icons_social-media.png) 0 0 no-repeat;
 }
 footer li a.facebook {
