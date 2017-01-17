@@ -14,7 +14,7 @@ a {
 	color: #3e59b2;
 }
 .column {
-	width: 1000px;
+	max-width: 1000px;
 	margin: 0 auto;
 }
 nav {
@@ -36,6 +36,7 @@ nav a.active {
 main {
 	padding-top: 100px;
 	background: #fff;
+
 }
 h1 {
 	padding-bottom: 75px;
@@ -60,6 +61,7 @@ h3 {
 }
 article {
 	padding: 0 110px 100px 110px;
+	max-width: 1000px;
 }
 footer {
 	padding: 75px 0;
@@ -88,6 +90,39 @@ footer li a {
 footer li a.facebook { background-position: 0 -46px; }
 footer li a.email { background-position: 0 -92px; }
 footer li a.instagram { background-position: 0 -138px; }
+
+
+/* ********************************************* */
+/* media queries*/ 
+/* ********************************************* */
+
+@media (max-width: 786px) {
+	p {
+		text-align: justify;
+		background-color: yellow;
+	}
+	header h1 {
+		padding: 0;
+	}
+	header img {
+		max-width: 240px;
+	}
+	header nav {
+		padding: 25px 0;
+	}
+	main {
+		padding-top: 60px;
+	}
+	article h2 {
+		padding-bottom: 20px;
+	}
+}
+
+@media (max-width: 480px) {
+	p {
+		background-color: red;
+	}
+}
 
 /* ********************************************* */
 /* project styles */ 
