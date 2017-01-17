@@ -9,6 +9,15 @@ body {
 	color: #45494d;
 	background: #2f2840 url('images/bg_body.gif') 50% 0 repeat; 
 }
+header h1 {
+	display: block;
+	margin: 0 auto 50px auto;
+	width: 298px;
+	height: 243px;
+	text-indent: -9999px;
+	overflow: hidden;
+	background: transparent url("images/logo.png") 0 0 no-repeat;
+}
 a {
 	text-decoration: none;
 	color: #3e59b2;
@@ -97,15 +106,12 @@ footer li a.instagram { background-position: 0 -138px; }
 /* ********************************************* */
 
 @media (max-width: 786px) {
-	p {
-		text-align: justify;
-		background-color: yellow;
-	}
 	header h1 {
+		width: 223px;
+		height: 182px;
 		padding: 0;
-	}
-	header img {
-		max-width: 240px;
+		margin: 0 auto;
+		background-size: 223px auto;
 	}
 	header nav {
 		padding: 25px 0;
@@ -113,16 +119,105 @@ footer li a.instagram { background-position: 0 -138px; }
 	main {
 		padding-top: 60px;
 	}
+	main p {
+		text-align: justify;
+	}
 	article h2 {
 		padding-bottom: 20px;
+		font-weight: bold;
+	}
+	article {
+		padding: 0 40px 100px 40px;
+	}
+	footer {
+		padding: 45px 0;
+	}
+	footer li {
+	  padding: 20px 25px;	
+	}
+	#projects article p {
+	  padding: 0 30px;	
+	}
+	#team article p {
+	  padding: 0 30px 80px 30px;	
 	}
 }
 
-@media (max-width: 480px) {
-	p {
-		background-color: red;
+
+@media (max-width: 875px) {
+	#team li {
+		width: 48%;
+		padding: 0 0 30px 0;
+	}
+	#team li img {
+		margin: 0 auto;
 	}
 }
+
+
+@media (max-width: 480px) {
+	body {
+		padding-top: 20px;
+	}
+	header h1 {
+		float: left;
+		width: 100px;
+		height: 64px;
+		font-size: 10px;
+		padding: 0;
+		margin: 0 auto;
+		background-size: 120px auto;
+		background-position: -20px 0;
+	}
+	header::before {
+		content: "Space Design";
+		color: #fff;
+		font-size: 20px;
+		position: absolute;
+		left: 75px;
+		top: 38px;
+	}
+	header nav {
+		padding: 0 0 6px 0;
+	}
+	header ul:after {
+		display: block;
+		content: "";
+		clear: both;
+	}
+	nav li {
+		display: block;
+		text-align: right;
+		font-size: 16px;
+		padding: 0 20px 10px 0;
+	}
+	main p {
+		font-size: 16px;
+		line-height: 22px;
+	}
+	main h2 {
+		font-size: 22px;
+	}
+	h2::before,
+	h2::after {
+		padding: 0 12px;
+		font-size: 18px;
+	}
+	article {
+		padding: 0 30px 70px 30px;
+	}
+	footer {
+		padding: 35px 0;
+	}
+	footer p {
+		font-size: 14px;
+		padding: 0 0 40px 0;
+	}
+	footer li {
+		padding: 20px 12px;
+	}
+}
+
 
 /* ********************************************* */
 /* project styles */ 
@@ -157,6 +252,9 @@ footer li a.instagram { background-position: 0 -138px; }
 }
 #team p {
 	padding: 0 110px 100px 110px;
+}
+#team ul {
+	padding: 0;
 }
 #team li {
 	display: inline-block; 
