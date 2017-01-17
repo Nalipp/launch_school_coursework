@@ -1,5 +1,5 @@
 
-@import url("assets/reset.css");
+@import url("reset.css");
 
 body { 
 	padding: 75px 0 0 0;
@@ -88,3 +88,47 @@ footer li a {
 footer li a.facebook { background-position: 0 -46px; }
 footer li a.email { background-position: 0 -92px; }
 footer li a.instagram { background-position: 0 -138px; }
+
+/* ********************************************* */
+/* project styles */ 
+/* ********************************************* */
+
+#projects article {
+	padding: 0 0 50px 0;
+}
+#projects article + article {
+	padding-top: 60px;
+}
+#projects p {
+	padding: 0 110px;
+	margin: 0;
+}
+#projects figure {
+	padding: 0 20px 30px 20px;
+	margin: 0;
+}
+#projects figure img {
+	display: block;
+	width: 100%;
+}
+
+
+/* ********************************************* */
+/* team styles */ 
+/* ********************************************* */
+
+#team article {
+	padding: 0 0 225px 0;
+}
+#team p {
+	padding: 0 110px 100px 110px;
+}
+#team li {
+	display: inline-block; 
+	padding: 0 30px;
+	font-size: 24px;
+}
+#team li img {
+	display: block;
+	margin: 0 0 20px 0;
+}
