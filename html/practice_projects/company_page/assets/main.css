@@ -2,125 +2,85 @@
 @import url("assets/reset.css");
 
 body { 
+	padding: 75px 0 0 0;
+	margin: 0;
 	font: normal 20px 'Nunito', sans-serif;
-}
-header {
+	text-align: center;
+	color: #45494d;
 	background: #2f2840 url('images/bg_body.gif') 50% 0 repeat; 
-	width: 100%;
-	text-align: center;
-	padding-bottom: 54px;
-}
-h2::before,
-h2::after {
-	content: '\2022';
-	padding: 0 20px;
-	font-size: 28px;
-}
-section h2::after {
-	content: &bull;;
-}
-header img {
-	padding-top: 136px;
-	padding-bottom: 126px;
-}
-header nav a {
-  color: #cacaca;
-	padding: 0 45px;
-	font-size: 26px;
-	text-transform: uppercase;
-}
-header nav a.active {
-	color: #6db9ff;
-	font-weight: bold;
-}
-main {
-	text-align: center;
-}
-.index-col {
-	margin: 0 20%;
-}
-.projects-col {
-	padding: 0 10%;
-}
-.projects-col p {
-	padding: 0 10%;
-}
-@media (max-width:875px) {
-}
-@media screen and (max-width:480px) {
-}
-section {
-	margin: 80px 0 32px 0;
-}
-section img {
-	margin: 0 auto;
-}
-#bullet {
-	margin: 0 28px;
-	font-size: 30px;
 }
 a {
 	text-decoration: none;
-}
-h2 {
-	color: #45494d;
-	font-size: 36px;
-	line-height: 54px;
-}
-h2:selected {
-	color: #6db9ff;
-}
-h3 {
-	font-size: 24px;
-	line-height: 36px;
 	color: #3e59b2;
 }
-p {
-	color: #45494d;
-	line-height: 30px;
+nav {
+	padding: 25px 0 60px;
+	font-size: 24px;
+	text-transform: uppercase;
+}
+nav li {
+	display: inline;
+	padding: 0 42px;
+}
+nav a {
+	color: #cacaca;
+} 
+nav a.active {
+	font-weight: bold;
+	color: #6db9ff;
+}
+main {
+	padding-top: 100px 0 0 0;
+	color: #fff;
+}
+h1 {
+	padding-bottom: 75px;
+}
+h2 {
+	padding-bottom: 40px;
+	font-size: 36px;
+	font-weight: 600;
+}
+h2::before,
+h2::after {
+	display: inline-block;
+	padding: 0 24px;
+	font-size: 22px;
+	vertical-align: 5px;
+	content: "\2022";
+}
+h3 {
+	padding-bottom: 20px;
+	font-size: 24px;
+	color: #3e59b2;
+}
+article {
+	padding: 0 110px 100px 110px;
 }
 footer {
-	padding-top: 88px;
-	margin-top: 130px;
-	text-align: center;
-	background-color: #e7e7e7;
+	padding: 75px 0;
+	color: #b2b2b2;
+	background: #e7e7e7;
+}
+footer p {
+	padding: 0 0 40px 0;
+}
+footer ul {
+	padding: 0;
+	margin: 0;
 }
 footer li {
 	display: inline-block;
-	padding: 28px 104px 78px 24px;
-}
-footer p {
-	color: #bababa;
-	margin: 0;
+	padding: 0 62px;
 }
 footer li a {
-	background: red;
 	display: block;
 	width: 46px;
 	height: 46px;
-	background: transparent url(images/icons_social-media.png) 0 0 no-repeat;
+	background: transparent url("images/icons_social-media.png") 0 0 no-repeat;
+	text-indent: -9999px;
+	overflow: hidden;
 }
-footer li a.facebook {
-	background-position: 0 -46px;
-}
-footer li a.email {
-	background-position: 0 -92px;
-}
-footer li a.instagram {
-	background-position: 0 -138px;
-}
-#team li {
-	display: inline-block;
-	padding: 0 30px;
-	font-size: 24px;
-}
-#team li img {
-	display: block;
-	margin: 0 0 20px 0;
-}
-@media (max-width:875px) {
-	li {
-	  width: 40%;	
-		padding: 0 0 30px 0;
-	}
-}
+footer li a.facebook { background-position: 0 -46px; }
+footer li a.email { background-position: 0 -92px; }
+footer li a.instagram { background-position: 0 -138px; }
