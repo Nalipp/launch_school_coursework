@@ -13,6 +13,10 @@ a {
 	text-decoration: none;
 	color: #3e59b2;
 }
+.column {
+	width: 1000px;
+	margin: 0 auto;
+}
 nav {
 	padding: 25px 0 60px;
 	font-size: 24px;
@@ -31,7 +35,7 @@ nav a.active {
 }
 main {
 	padding-top: 100px 0 0 0;
-	color: #fff;
+	background: #fff;
 }
 h1 {
 	padding-bottom: 75px;
