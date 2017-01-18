@@ -1,11 +1,9 @@
 
 @import url("reset.css");
 
-body {
-	font: 300 18px 'Nunito', sans-serif;
-	border: 2px solid #000;
-	margin-right: 40%;
-	padding: 10px;
+html, body {
+	font: 28px Helvetica, Arial, sans-serif;
+	background: #fff;
 }
 dl {
 	font-size: 0;
