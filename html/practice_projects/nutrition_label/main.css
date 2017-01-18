@@ -1,0 +1,128 @@
+
+@import url("reset.css");
+
+body {
+	font: 300 18px 'Nunito', sans-serif;
+	border: 2px solid #000;
+	margin-right: 40%;
+	padding: 10px;
+}
+dl {
+	font-size: 0;
+}
+dt, dd {
+	position: inline-block;
+	border-bottom: 1px solid #000;
+	box-sizing: border-box;
+	width: 50%;
+}
+dt {
+	text-align: left;
+	display: inline-block; 
+}
+dl.oversize > dt {
+	width: 75%;
+}
+dl.oversize > dd {
+	width: 25%;	
+}
+dd {
+	text-align: right;
+	float: right;
+}
+h1 {
+	font-weight: 900;
+	font-size: 88px;
+	line-height: 90px;
+	letter-spacing: 1px;
+}
+h2 {
+	display: inline-block;
+	font-weight: 300;
+	font-size: 28px;
+	line-height: 38px;
+	letter-spacing: -1px;
+}
+h3 {
+	font-weight: 300;
+	font-size: 24px;
+	letter-spacing: -0.4px;
+	line-height: 28px;
+}
+h4 {
+	font-weight: 900;
+	font-size: 20px;
+	line-height: 30px;
+	letter-spacing: -0.2px;
+}
+h4:first-of-type {
+	border-bottom: 1px solid #000;
+}
+h3:nth-of-type(2) {
+	border-bottom: 26px solid #000;
+}
+dl:first-of-type > dt,
+dl:first-of-type > dd {
+	border-bottom: 10px solid #000;
+}
+dl:last-of-type > dt,
+dl:last-of-type > dd {
+	border-bottom: 26px solid #000;
+}
+dl:nth-child(3) > dd, 
+dl:nth-child(11) > dt,
+dl:nth-child(12) > dt {
+	width: 100%;
+}
+dl:nth-child(11) > dt,
+dl:nth-child(6) > dt {
+	position: relative;
+	width: 92%;
+	left: 8%;
+}
+dl:nth-child(5) > dt,
+dl:nth-child(10) > dt {
+	position: relative;
+	width: 42%;
+	left: 8%;
+}
+.italic {
+	font-style: italic;
+}
+strong {
+	font-weight: 900;
+	letter-spacing: -0.4px;
+}
+p {
+	position: relative;
+	padding-top: 10px;
+	padding-left: 10px;
+	letter-spacing: -0.2px;
+	line-height: 20px;
+}
+p span {
+	position: absolute;
+	left: 0;
+}
+table {
+	line-height: 18px;
+}
+th {
+	border-bottom: 1px solid #000;
+}
+th, 
+td {
+	font-weight: 300;
+	width: 22%;
+	text-align: left;
+}
+th:first-of-type,
+td:first-of-type {
+	width: 46%;
+}
+footer {
+	clear: both;
+}
+td.text-indent {
+	text-indent: 5%;
+}
