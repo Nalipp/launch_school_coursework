@@ -1,0 +1,17 @@
+#main,
+#aside {
+	padding: 20px 30px;
+	box-sizing: border-box;
+}
+#main {
+	float: left;
+	width: 50%;
+	background: lawngreen;
+	min-width: 600px;
+	max-width: 800px;
+}
+#aside {
+	overflow: auto;
+	background: yellow;
+	height: 800px;
+}
