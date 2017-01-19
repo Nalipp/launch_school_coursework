@@ -1,0 +1,172 @@
+/* colors */ 
+/* header background   			#3d3d3d */
+
+
+/* fonts */
+/* h1 (header main) #fff */
+/* nav(header) #fff */
+/* header nav selected 			#50c3af */
+
+/* h2 (section title) */
+/* h4 (section subheading) */
+/* p  (section) #45494d */
+/* page link									#50c3af */ 
+
+/* h3 (aside title) #40474e */
+/* nav(aside) #787b80 */
+/* p  (aside) #787b80 */
+
+/* footer hr									#d0d0d0 */
+/* p  (footer) #787b80 */
+
+@import url("reset.css");
+
+/* ********************************************* */
+/* general styles (mobile first) */
+/* ********************************************* */
+body {
+	font: normal 20px Helvetica, Arial, sans-serif;
+	line-height: 26px;
+	color: #45494d;
+	text-align: justify;
+}
+main {
+	margin: 40px 15px;
+}
+a {
+	text-decoration: none;
+}
+ul {
+	list-style: none;
+}
+
+/* ********************************************* */
+/* header styles */
+/* ********************************************* */
+header {
+	background: #3d3d3d;
+	color #fff;
+	padding: 20px 20px 0 20px;
+}
+header a {
+	text-transform: uppercase;
+	color: #fff;
+}
+header img {
+	width: 100%;
+	padding: 10px 0 40px 0;
+}
+div.wrapper {
+	display: block;
+}
+h1 {
+	padding: 20px 0;
+	font-size: 3rem;
+	line-height: 3.4rem;
+	font-weight: normal;
+	letter-spacing: 20px;
+	text-align: center;
+}
+header ul {
+	text-align: center;
+}
+header li {
+	display: inline-block;
+	width: 49%;
+	box-sizing: border-box;
+	padding: 10px 0;
+}
+header li.selected a {
+	color: #50c3af;
+}
+/* ********************************************* */
+/* main styles */
+/* ********************************************* */
+article {
+	padding: 24px 12px;
+}
+article a {
+	color: #50c3af;
+}
+h2 {
+	font-size: 1.5rem;
+	line-height: 2.4rem;
+	padding: 12px 0; 
+}
+h4 {
+	line-height: 2rem;
+	font-weight: normal;
+}
+p {
+	padding: 12px 0; 
+}
+button {
+	font-size: 0.9rem;
+	background: #d2d5da;
+	color: #fff;
+	border: none;
+	border-radius: 20px;
+	padding: 4px 24px;
+	margin: 16px 24px 16px 0;
+}
+a.previous button {
+	background: #50c3af;
+}
+
+/* ********************************************* */
+/* main styles */
+/* ********************************************* */
+
+aside { 
+	margin-bottom: 80px;
+}
+aside section{
+	background: whitesmoke;
+	margin: 15px 0 25px 0;
+	padding: 15px 20px 25px 20px;
+	color: #787b80; 
+}
+h3 {
+	color: #40474e;
+	font-size: 1rem;
+	text-transform: uppercase;
+	padding-bottom: 30px;
+}
+aside li {
+	line-height: 1.4rem;
+	font-size: 0.9rem;
+}
+aside li:before {
+	width: 18px;
+	height: 12px;
+	background: transparent url("arrow_icon.png") 0 0 no-repeat;
+	content: "";
+	display: inline-block;
+}
+aside a {
+	font-weight: normal;
+	color: #787b80; 
+}
+aside p {
+	font-size: 0.9rem;
+	line-height: 1.4rem;
+}
+
+/* ********************************************* */
+/* footer styles */
+/* ********************************************* */
+
+footer {
+	color: #787b80; 
+	padding-top: 40px;
+}
+hr {
+	border-top: 1px solid #d0d0d0;
+}
+footer p {
+	font-size: 0.75rem;
+	padding: 0 0 26px 0;
+}
+
+
+
