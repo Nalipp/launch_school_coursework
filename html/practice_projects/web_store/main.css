@@ -1,0 +1,82 @@
+
+@import url("reset.css");
+
+body {
+	font: normal 18px Helvetica, Arial, sans-serif;
+	background: lawngreen;
+	margin: 0 15%;
+}
+header {
+	background: deepskyblue;
+	padding: 28px 20px;
+	border-radius: 0 0 18px 18px;
+	margin-bottom: 40px;
+	color: white;
+}
+main {
+	background: gainsboro;
+	color: #000;
+	padding: 20px;
+}
+h1 {
+	font-size: 40px;
+}
+h2 {
+	font-size: 34px;
+	padding-bottom: 10px;
+}
+ul {
+	margin: 0;
+	padding: 0;
+}
+ul:after {
+	display: block;
+	content: "";
+	clear: both;
+}
+li {
+	float: left;
+	vertical-align: top;
+	background: #fff;
+	width: 23.5%;
+	padding: 15px;
+	box-sizing: border-box;
+	margin-right: 2%;
+	margin-bottom: 2%;
+	min-height: 240px;
+}
+label {
+	display: block;
+	cursor: pointer;
+}
+input:checked + figure img {
+	position: absolute;
+	top: 10%;
+	left: 200px;
+	right: 200px;
+	width: 400px;
+	height: auto;
+}
+input:checked + figure:before  {
+	position: fixed;
+	content: "";
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, .4);
+}
+li:nth-child(4) {
+	margin-right: 0;
+}
+figure img {
+	display: block;
+	max-width 140px;
+	height: 120px;
+	padding: 10px;
+	margin: 0 auto;
+}
+h3, p {
+	text-align: center;
+	padding-bottom: 2px;
+}
