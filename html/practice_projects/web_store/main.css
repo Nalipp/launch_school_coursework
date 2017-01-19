@@ -49,6 +49,9 @@ label {
 	display: block;
 	cursor: pointer;
 }
+input[type="checkbox"] {
+	display: none; 
+}
 input:checked + figure img {
 	position: absolute;
 	top: 10%;
