@@ -1,0 +1,57 @@
+@import url("whitespace-reset.css");
+
+h1 {
+	font-size: 4em;
+	line-height: 2em;
+}
+h2 {
+	font-size: 3em;
+	line-height: 1.5em;
+}
+h3 {
+	font-size: 2em;
+	line-height: 1.4em;
+}
+h4 {
+	font-size: 1.4em;
+	line-height: 1.3em;
+}
+.row {
+	max-width: 1200px;
+	margin: 0 auto 20px auto;
+}
+
+
+/* ************************************* */
+/* lists */
+/* ************************************* */
+
+.copy {
+	font-size: 1em;
+	line-height: 1.2em;
+}
+.copy > p {
+	padding: 10px;
+}
+.copy ul, 
+.copy ol {
+	padding: 10px 30px;
+}
+.copy ul > li {
+	list-style: disc;
+}
+.copy > ul > li > ul {
+	padding-left: 20px;
+}
+.copy > ul > li > ul > li {
+	list-style: circle;
+}
+.copy ol {
+	list-style: decimal;
+}
+.copy > ol > li > ol {
+	padding-left: 20px;
+}
+.copy > ol > li > ol > li {
+	list-style: upper-roman;
+}

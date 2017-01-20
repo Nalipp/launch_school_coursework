@@ -143,6 +143,7 @@ aside p {
 footer {
 	color: #787b80; 
 	padding-top: 40px;
+	clear: both;
 }
 hr {
 	border-top: 1px solid #d0d0d0;
@@ -169,9 +170,10 @@ footer p {
 	}
 	aside section {
 		float: left;
-		width: 50%;
+		width: 46%;
 		box-sizing: border-box;
-		height: 280px;
+		/* height: 280px; */
+		margin: 0 2%
 	}
 	aside:after {
 		display: block; 
@@ -200,13 +202,16 @@ footer p {
 		display: inline-block;
 		width: 65%;
 		box-sizing: border-box;
+		float: left;
 	}
 	aside {
 		display: inline-block;
 		width: 31%;
-		box-sizing: border-box;
+		/* box-sizing: border-box; */
 		margin-left: 2%;
-		vertical-align: top;
+		/* vertical-align: top; */
+		overflow: hidden;
+		
 	}
 	aside section {
 		width: 100%;

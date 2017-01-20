@@ -1,0 +1,47 @@
+@import url("normalize.css");
+
+a {
+	text-decoration: none;
+}
+ul {
+	list-style: none;
+	margin: 2%;
+	padding: 0;
+}
+.fourth {
+	background: lawngreen;
+	box-sizing: border-box;
+	border: 2px solid grey;
+	float: left;
+	width: 23.5%;
+}
+.row {
+	clear: both;
+}
+.fourth + .fourth {
+	margin-left: 2%;
+}
+.row::after {
+	display: block;
+	clear: both;
+	line-height: 0;
+	content: "";
+}
+
+@media (max-width: 767px) {
+	.mobile {
+		display: block;
+	}
+	.desktop {
+		display: none;
+	}
+	.fourth {
+		float: none;
+		width: auto;
+		background: yellow;
+	}
+	.fourth + .fourth {
+		margin-left: 0;
+	}
+}
+
