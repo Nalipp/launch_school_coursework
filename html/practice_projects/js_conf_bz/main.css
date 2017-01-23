@@ -33,7 +33,6 @@ header {
 }
 header img {
   padding-top: 160px;
-
 }
 header nav {
 	background: #fff;
@@ -61,6 +60,8 @@ header a {
 section {
 	padding: 60px 0;
 	border-bottom: 1px solid #EEE;
+  margin: 0 auto;
+  text-align: center;
 }
 section h2,
 section p {
@@ -89,7 +90,6 @@ section button {
 }
 #speakers-intro {
   max-width: 980px; 
-  text-align: center;
 }
 #speakers-intro dl {
   text-align: center; 
@@ -110,6 +110,34 @@ section button {
   line-height: 165%;
   height: 80px;
   max-width: 280px;
+}
+#schedule {
+  max-width: 960px;
+}
+#schedule table {
+  width: 100%;
+  text-align: left;
+}
+#schedule img {
+  float: right;
+  padding-left: 20px;
+  max-height: 100px;
+}
+#schedule td {
+  font-size: 1.2em;
+  padding: 10px;
+  border-top: 1px solid #EEE;
+}
+#schedule dl dd {
+  font-size: 0.8em;
+  font-weight: 700; 
+  color: #008000;
+}
+#schedule span {
+  background: #EEE;
+  border: 1px solid grey;
+  padding: 0 4px;
+  font-size: 0.29em;
 }
 @media (max-width: 655px) {
   header {
