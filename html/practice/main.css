@@ -1,0 +1,62 @@
+@import url('reset.css');
+
+body {
+	font: normal 20px sans-serif;
+}
+header {
+	background: grey;
+	text-align: center;
+}
+h1 {
+	padding: 20px;
+	font-size: 40px;
+}
+h2 {
+	padding: 10px 20px;
+	font-size: 30px;
+}
+h3 {
+	font-size: 25px;
+	padding: 10px 20px;
+}
+a {
+	text-decoration: none;
+	color: grey;
+}
+p {
+	padding: 10px 20px;
+	/*width: 70%;*/
+}
+section {
+	float: left;
+	margin-top: 40px;
+	width: 70%;
+}
+main {
+	max-width: 1000px;
+	margin: 0 auto;
+}
+main:after {
+	display: block;
+	content: "";
+	clear: both;
+}
+aside {
+	/*float: left;*/
+	/*position: absolute;
+	top: 0;
+	right: 0;*/
+	padding: 10px 20px;
+	margin: 2% 2% 2% 0;
+	background: lawngreen;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+aside a {
+	color: white;
+}
+header li {
+	display: inline-block;
+	color: white;
+	padding: 10px 20px;
+}

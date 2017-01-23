@@ -22,6 +22,10 @@ h1 {
 a {
 	text-decoration: none;
 }
+section a {
+  color: #008000;
+  font-weight: 800;
+}
 header {
 	color: white;
   margin-top: 50px;
@@ -74,9 +78,9 @@ section h2 {
 section p {
 	font-size: 0.8em;
 	line-height: 150%;
-	padding-top: 6px;	
+	padding: 6px 0;	
 }
-section button {
+section .button-link {
 	display: block;
 	text-align: center;
 	font-weight: 700;
@@ -84,27 +88,28 @@ section button {
 	color: white;
 	background: #008000;
 	border: none;
-	margin: 15px auto; 
-	padding: 12px 32px;
+	margin: 6px auto 15px auto; 
+	padding: 10px 32px;
 	font-size: 0.8em;
+  width: 180px;
 }
 #speakers-intro {
   max-width: 980px; 
 }
-#speakers-intro dl {
+#speakers-intro figure {
   text-align: center; 
   display: inline-block;
   border: 1px solid #EEE;
   margin: 5px;
   vertical-align: top;
 }
-#speakers-intro dt {
+#speakers-intro figcaption h5 {
   font-size: 1.2em;
   font-weight: 700; 
   color: #008000;
   padding-top: 25px;
 }
-#speakers-intro dd {
+#speakers-intro figcaption p {
   font-size: 0.8em;
   font-weight: 300;
   line-height: 165%;
@@ -128,7 +133,7 @@ section button {
   padding: 10px;
   border-top: 1px solid #EEE;
 }
-#schedule dl dd {
+#schedule h5 {
   font-size: 0.8em;
   font-weight: 700; 
   color: #008000;
@@ -139,16 +144,60 @@ section button {
   padding: 0 4px;
   font-size: 0.29em;
 }
+#location p:first-of-type {
+  font-weight: 800;
+}
+#location p {
+  text-align: left;
+  max-width: 960px;
+  margin: 0 auto;
+}
+iframe {
+  pointer-events:none;
+  width: 100%;
+  padding: 30px 0;
+}
+#papers p {
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: left;
+}
+#papers .button-link {
+  text-align: left;
+  margin: 10px 0 6px 0;
+  font-size: 1em;
+}
+#sponsors {
+  max-width: 960px;
+  text-align: left;
+}
+#sponsors p {
+  font-weight: 800;
+  text-align: left;
+  padding-top: 20px;
+}
+#platinum img {
+  width: 300px;
+}
+#gold img {
+  width: 300px;
+}
+#silver img {
+  width: 240px;
+}
+#support img {
+  width: 200px;
+}
 @media (max-width: 655px) {
   header {
     margin-top: 0;
     padding-bottom: 40px;
   }
   header nav {
-    display: none;
-  }
-  header img {
-    padding-top: 100px;
+  display: none;
+}
+header img {
+  padding-top: 100px;
   }
   header h1 {
     font-size: 2em;
