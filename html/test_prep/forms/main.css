@@ -1,0 +1,10 @@
+@import url('reset.css');
+body {
+  padding: 50px;
+  font: italic normal 16px/140% Helvetica, Arial, sans-serif;
+}
+li {
+  display: inline-block;
+  list-decoration: none;
+  padding-right: 20px;
+}
