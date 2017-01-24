@@ -16,7 +16,7 @@ header h1 a {
   width: 298px;
   height: 243px;
 	background: transparent url("images/logo.png") 0 0 no-repeat;
-  margin: 0 auto 50px auto;
+  margin: 0 auto;
 }
 a {
 	text-decoration: none;
@@ -185,7 +185,26 @@ footer a.instagram {
 /* project styles */ 
 /* ********************************************* */
 
-#projects  {
+#projects img {
+  display: block;
+  max-width: 960px;
+  width: 94%;
+  margin: 0 auto;
+  padding-bottom: 30px;
+}
+#projects {
+  padding: 0 0 20px 0;
+}
+#projects p {
+  max-width: 800px;
+  width: 94%;
+  border-bottom: 1px solid #cccccc;
+  padding: 0 0 50px 0;  
+  margin: 0 auto 60px auto;
+}
+#projects article:last-of-type p {
+  border-bottom: 0;
+  margin-bottom: 0;
 }
 
 
