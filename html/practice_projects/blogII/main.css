@@ -1,0 +1,202 @@
+
+@import url("reset.css");
+
+/* ********************************************* */
+/* general styles 
+/* ********************************************* */
+body {
+	font: 500 20px Helvetica, Arial, sans-serif;
+	color: #45494d;
+  box-sizing: border-box;
+  text-align: justify;
+}
+a {
+	text-decoration: none;
+}
+ul {
+	list-style: none;
+}
+
+/* ********************************************* */
+/* header styles */
+/* ********************************************* */
+header {
+	background: #3d3d3d;
+	color #fff;
+  text-align: center;
+  text-transform: uppercase;
+}
+header li {
+  display: block;
+}
+header h1 {
+  font-size: 70px;
+  letter-spacing: 18px;
+  font-weight: 500;
+  padding: 110px 0 0 0;
+}
+header a {
+	color: #fff;
+}
+header img {
+  padding: 44px 0 0 0;
+}
+header nav li {
+  display: inline-block;
+  font-size: 22px;
+  font-weight: 500;
+  padding: 0 20px;
+}
+header nav ul {
+  padding: 130px 0 60px 0;
+}
+header li.selected a {
+  color: #50c3af;
+}
+
+/* ********************************************* */
+/* main styles */
+/* ********************************************* */
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.main-content {
+  width: 66%;
+  float: left;
+}
+section a {
+	color: #50c3af;
+}
+section h2 {
+  font-size: 36px;
+  font-weight: 600;
+  padding: 80px 0 0 0;
+}
+section h4 {
+  padding: 26px 0 0 0;
+  font-weight: 500;
+}
+section p {
+  padding: 22px 0 0 0;
+  line-height: 30px;
+}
+.main-content li {
+  padding: 80px 0 70px 0;
+  display: inline-block;
+}
+.button-link {
+	font-size: 0.9rem;
+	border: none;
+	border-radius: 20px;
+	padding: 4px 24px;
+	margin: 16px 24px 16px 0;
+	color: #fff;
+}
+.prev {
+	background: #d2d5da;
+}
+.next {
+	background: #50c3af;
+}
+
+/* ********************************************* */
+/* aside styles */
+/* ********************************************* */
+
+aside {
+  float: right;
+  width: 24%;
+  margin: 80px 0 0 0;
+	background: whitesmoke;
+	color: #787b80; 
+  font-size: 14px;
+  line-height: 20px;
+}
+aside section {
+  padding: 0 40px 55px 40px;
+}
+aside h3 {
+  font-size: 16px;
+  text-transform: uppercase;
+	color: #40474e;
+  padding: 40px 0 30px 0;
+}
+aside p {
+  line-height: 20px;
+}
+aside li:before {
+	width: 18px;
+	height: 12px;
+	background: transparent url("arrow_icon.png") 0 0 no-repeat;
+	content: "";
+	display: inline-block;
+}
+aside a {
+	color: #787b80; 
+}
+
+
+/* ********************************************* */
+/* footer styles */
+/* ********************************************* */
+
+footer {
+	color: #787b80; 
+  clear: both;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+hr {
+	border-top: 1px solid #d0d0d0;
+}
+footer p {
+  font-size: 12px;
+  padding: 6px 0 32px 0;
+}
+
+
+/* ********************************************* */
+/* media styles */
+/* ********************************************* */
+
+/* @media (max-width: 480px) { */
+/*   bottom sidebar splits (this may not be a breakpoint) */
+/* } */
+
+@media (max-width: 600px) {
+  /* sidbar moves to bottom */
+
+  .main-content {
+    float: none;
+    width: 90%;
+    margin: 0 auto;
+  }
+  aside {
+    float: none;
+    width: 100%;
+    margin: 0 0 60px 0;
+  }
+  aside section {
+    display: inline-block;
+    width: 50%;
+    box-sizing: border-box;
+    vertical-align: top;
+  }
+}
+
+@media (max-width: 770px) {
+  /* header spacing changes */
+  /* h2 size changes */
+  header h1 {
+    font-size: 50px;
+    padding: 40px 0 0 0;
+  }
+  header nav ul {
+    padding: 130px 20px 20px 20px;
+  }
+  section h2 {
+    font-size: 24px;
+  }
+}
